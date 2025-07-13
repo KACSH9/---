@@ -3,3 +3,5 @@ pandas
 requests
 lxml
 beautifulsoup4
+selenium
+html5lib
