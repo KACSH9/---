@@ -64,4 +64,4 @@ for dt_text, title, link in results:
     month = datetime.strptime(mon_str, "%B").month
     day   = int(day_str)
     prefix = f"{current_year}-{month:02d}-{day:02d}"
-    print(f"{prefix}  {title}  {link}")
+    print(f"{prefix} {title} {link}")
