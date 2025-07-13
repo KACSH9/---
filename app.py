@@ -33,16 +33,17 @@ if st.button("🔍 查询"):
                 )
                 matched_lines = [
                     line.strip() for line in result.stdout.splitlines()
-                    if date_str in line
+                    if "▶" in line
                 ]
                 if matched_lines:
                     for line in matched_lines:
-                        rest = line.replace(date_str, "").strip()
-                        parts = rest.split()
-                        if parts:
-                            link = parts[-1]
-                            title = " ".join(parts[:-1])
-                            results.append((script, title, link))
+                        script_name, rest = line.split("▶", 1)
+                        parts = rest.strip().rsplit(" ", 1)
+                        if len(parts) == 2:
+                            title, link = parts
+                            results.append((script_name.strip(), title.strip(), link.strip()))
+                        else:
+                            results.append((script_name.strip(), rest.strip(), ""))
                 else:
                     logs.append(f"{script} 没有匹配记录")
                     results.append((script, "", ""))
@@ -50,16 +51,18 @@ if st.button("🔍 查询"):
                 logs.append(f"[ERROR] {script} 执行失败：{e.stderr.strip()}")
                 results.append((script, "", ""))
 
-        # 显示结果
-        st.success(f"✅ 查询成功，共 {len([r for r in results if r[1]])} 条记录：")
-        st.dataframe(results, use_container_width=True)
+        # 仅显示非空标题的记录
+        display_results = [r for r in results if r[1]]
+        st.success(f"✅ 查询成功，共 {len(display_results)} 条记录：")
+        st.dataframe(display_results, use_container_width=True)
 
         # 下载 CSV
         csv_path = f"results_{date_str}.csv"
         with open(csv_path, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
             writer.writerow(["script", "title", "link"])
-            writer.writerows(results)
+            writer.writerows(display_results)
+
         with open(csv_path, "rb") as f:
             st.download_button("📥 下载 CSV", f, file_name=csv_path)
 
@@ -67,3 +70,4 @@ if st.button("🔍 查询"):
         with st.expander("📄 运行日志"):
             for log in logs:
                 st.write(log)
+
