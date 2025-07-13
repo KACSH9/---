@@ -1,7 +1,9 @@
-streamlit
-pandas
-requests
+webdriver-manager
+selenium
 lxml
 beautifulsoup4
-selenium
+requests
 html5lib
+pandas
+streamlit
+
