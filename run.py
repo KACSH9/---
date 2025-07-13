@@ -117,10 +117,28 @@ def main():
             processed_count += 1
         else:
             # 无匹配结果
-            print(f"{script} ▶ ✖ 没有找到包含 "{date_str}" 的记录")
+            print(f"{script} ▶ ✖ 没有找到包含 '{date_str}' 的记录")
             all_rows.append((script, f"没有找到包含 {date_str} 的记录", ""))
             processed_count += 1
     
+    print(f"[Debug] 成功处理 {processed_count}/{len(scripts)} 个脚本")
+    
+    # 写入 CSV
+    out_path = args.out or f"results_{date_str}.csv"
+    out_file = Path(out_path)
+    
+    try:
+        with out_file.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(["script", "title", "link"])
+            for row in all_rows:
+                writer.writerow(row)
+        print(f"\n✅ 已将结果导出到：{out_file.resolve()}")
+    except Exception as e:
+        print(f"[Error] 写入 CSV 文件失败：{e}", file=sys.stderr)
+
+if __name__ == "__main__":
+    main()
     print(f"[Debug] 成功处理 {processed_count}/{len(scripts)} 个脚本")
     
     # 写入 CSV
