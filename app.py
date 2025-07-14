@@ -35,27 +35,9 @@ def parse_run_output_line(line):
     解析run.py的输出行
     输入格式：脚本名 ▶ 标题  链接
     或：脚本名 ▶ ✖ 没有找到包含 '日期' 的记录
-    或：[Error] 调用 脚本名 失败：...
     返回：(script, title, link, status)
     """
     line = line.strip()
-
-    # 处理错误信息
-    if line.startswith("[Error] 调用") and "失败" in line:
-        # 从错误信息中提取脚本名
-        try:
-            script_part = line.split("调用")[1].split("失败")[0].strip()
-            return (script_part, "", "", "error")
-        except:
-            return ("未知脚本", "", "", "error")
-
-    # 处理超时信息
-    if line.startswith("[Error] 调用") and "超时" in line:
-        try:
-            script_part = line.split("调用")[1].split("超时")[0].strip()
-            return (script_part, "", "", "timeout")
-        except:
-            return ("未知脚本", "", "", "timeout")
 
     if "▶" not in line:
         return None
@@ -320,7 +302,7 @@ if query_button:
                     continue
 
                 # 跳过不相关的行
-                if line.startswith("✅") or "已将结果导出到" in line:
+                if line.startswith("✅") or line.startswith("[Error]") or "已将结果导出到" in line:
                     add_log(f"跳过状态行: {line[:50]}...", "DEBUG")
                     continue
 
@@ -360,49 +342,23 @@ if query_button:
                 success = len(df[df['status'] == 'success'])
                 no_match = len(df[df['status'] == 'no_match'])
                 empty = len(df[df['status'] == 'empty'])
-                error = len(df[df['status'].isin(['error', 'timeout'])])
 
-                add_log(f"统计: 总数{total}, 成功{success}, 无匹配{no_match}, 空{empty}, 错误{error}", "INFO")
+                add_log(f"统计: 总数{total}, 成功{success}, 无匹配{no_match}, 空{empty}", "INFO")
 
                 status_placeholder.success(f"✅ 查询完成！获得 {success} 条有效记录")
                 progress_bar.progress(1.0)
 
                 # 显示统计
                 st.markdown("### 📊 查询结果统计")
-                col1, col2, col3, col4, col5 = st.columns(5)
+                col1, col2, col3, col4 = st.columns(4)
                 with col1:
                     st.metric("总数据源", total)
                 with col2:
-                    st.metric("✅ 成功获取", success)
+                    st.metric("成功获取", success)
                 with col3:
-                    st.metric("⚠️ 无匹配记录", no_match)
+                    st.metric("无匹配记录", no_match)
                 with col4:
-                    st.metric("❌ 脚本错误", error)
-                with col5:
-                    st.metric("📝 其他状态", empty)
-
-                # 如果有错误，显示错误汇总
-                if error > 0:
-                    error_scripts = df[df['status'].isin(['error', 'timeout'])]['script'].tolist()
-                    with st.expander(f"⚠️ 发现 {error} 个脚本执行异常", expanded=False):
-                        st.write("**异常脚本列表：**")
-                        for script in error_scripts:
-                            status = df[df['script'] == script]['status'].iloc[0]
-                            if status == 'timeout':
-                                st.write(f"• {script} （⏰ 执行超时）")
-                            else:
-                                st.write(f"• {script} （❌ 脚本错误）")
-
-                        st.write("**常见原因：**")
-                        st.write("- 网络连接超时（60秒）")
-                        st.write("- 目标网站无法访问")
-                        st.write("- 浏览器驱动程序问题")
-                        st.write("- 脚本代码错误")
-
-                        st.write("**解决建议：**")
-                        st.write("- 检查网络连接")
-                        st.write("- 稍后重试")
-                        st.write("- 查看详细执行日志")
+                    st.metric("其他状态", empty)
 
                 st.markdown("---")
 
@@ -411,7 +367,7 @@ if query_button:
                 with filter_col1:
                     show_filter = st.selectbox(
                         "显示筛选:",
-                        ["全部", "仅成功", "仅无匹配", "仅错误", "仅空记录"],
+                        ["全部", "仅成功", "仅无匹配", "仅空记录"],
                         index=0
                     )
                 with filter_col2:
@@ -424,8 +380,6 @@ if query_button:
                     filtered_df = filtered_df[filtered_df['status'] == 'success']
                 elif show_filter == "仅无匹配":
                     filtered_df = filtered_df[filtered_df['status'] == 'no_match']
-                elif show_filter == "仅错误":
-                    filtered_df = filtered_df[filtered_df['status'].isin(['error', 'timeout'])]
                 elif show_filter == "仅空记录":
                     filtered_df = filtered_df[filtered_df['status'] == 'empty']
 
@@ -441,9 +395,7 @@ if query_button:
                     status_map = {
                         'success': '✅ 成功',
                         'no_match': '⚠️ 无匹配',
-                        'empty': '📝 空结果',
-                        'error': '❌ 脚本错误',
-                        'timeout': '⏰ 执行超时'
+                        'empty': '📝 空结果'
                     }
                     display_df['status_cn'] = display_df['status'].map(status_map)
 
@@ -537,5 +489,6 @@ with st.sidebar:
     - 需要网络连接
     - 部分源可能暂时不可用
     - 查看日志了解详情
-    - 单个脚本60秒超时
     """)
+
+
