@@ -6,4 +6,4 @@ requests
 html5lib
 pandas
 streamlit
-
+chardet
