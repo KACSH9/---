@@ -1,4 +1,4 @@
-# app.py
+# app.py - 加速优化版
 import streamlit as st
 import subprocess
 import sys
@@ -26,21 +26,13 @@ def add_log(message, level="INFO"):
     timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     log_entry = f"[{timestamp}] {level}: {message}"
     st.session_state.debug_logs.append(log_entry)
-    print(log_entry)
 
 def parse_run_output_line(line):
-    """
-    解析run.py的输出行
-    输入格式：脚本名 ▶ 标题  链接
-    或：脚本名 ▶ ✖ 没有找到包含 '日期' 的记录
-    或：[Error] 调用 脚本名 失败：...
-    返回：(script, title, link, status)
-    """
+    """解析run.py的输出行"""
     line = line.strip()
     
     # 处理错误信息
     if line.startswith("[Error] 调用") and "失败" in line:
-        # 从错误信息中提取脚本名
         try:
             script_part = line.split("调用")[1].split("失败")[0].strip()
             return (script_part, "", "", "error")
@@ -71,14 +63,12 @@ def parse_run_output_line(line):
         return (script, "", "", "no_match")
     
     # 解析标题和链接
-    # 内容格式：标题  链接
-    # 链接通常以http开头
     content_parts = content.split()
     
     if not content_parts:
         return (script, "", "", "empty")
     
-    # 从后往前找第一个以http开头的部分作为链接
+    # 找链接
     link = ""
     title_parts = content_parts
     
@@ -91,7 +81,6 @@ def parse_run_output_line(line):
     
     title = " ".join(title_parts).strip()
     
-    # 确定状态
     if title or link:
         status = "success"
     else:
@@ -99,19 +88,9 @@ def parse_run_output_line(line):
     
     return (script, title, link, status)
 
-# 环境检查
-def check_environment():
-    add_log("开始环境检查", "INFO")
-    
-    # 检查run.py
-    run_py_path = Path("run.py")
-    if run_py_path.exists():
-        add_log("✅ run.py 文件存在", "SUCCESS")
-    else:
-        add_log("❌ run.py 文件不存在", "ERROR")
-        return False
-    
-    # 检查爬虫脚本
+# 快速环境检查
+def quick_check_environment():
+    run_py_exists = Path("run.py").exists()
     scripts = [
         "中国外交部.py", "国际海事组织.py", "世界贸易组织.py", "日本外务省.py", 
         "联合国海洋法庭.py", "国际海底管理局.py", "战略与国际研究中心.py", 
@@ -120,199 +99,162 @@ def check_environment():
         "越南外交部.py", "越南外交学院.py"
     ]
     
-    existing_count = 0
-    for script in scripts:
-        if Path(script).exists():
-            existing_count += 1
-            add_log(f"✅ {script} 存在", "SUCCESS")
-        else:
-            add_log(f"❌ {script} 不存在", "WARNING")
+    existing_count = sum(1 for script in scripts if Path(script).exists())
     
-    add_log(f"脚本检查完成: {existing_count}/{len(scripts)} 个存在", "INFO")
-    return True
+    return run_py_exists, existing_count, len(scripts)
 
-# 运行环境检查
-with st.expander("🔍 环境检查", expanded=True):
-    env_placeholder = st.empty()
-    
-    if check_environment():
-        with env_placeholder.container():
-            st.success("✅ 环境检查通过")
-            if st.session_state.debug_logs:
-                st.text_area("检查日志:", "\n".join(st.session_state.debug_logs[-10:]), height=150)
-    else:
-        with env_placeholder.container():
-            st.error("❌ 环境检查失败")
-            if st.session_state.debug_logs:
-                st.text_area("检查日志:", "\n".join(st.session_state.debug_logs), height=200)
-        st.stop()
+# 快速环境检查
+run_py_ok, existing_scripts, total_scripts = quick_check_environment()
+
+if not run_py_ok:
+    st.error("❌ 找不到 run.py 文件")
+    st.stop()
+
+with st.expander("🔍 环境状态", expanded=False):
+    col1, col2 = st.columns(2)
+    with col1:
+        st.metric("run.py", "✅ 存在" if run_py_ok else "❌ 缺失")
+    with col2:
+        st.metric("爬虫脚本", f"{existing_scripts}/{total_scripts}")
 
 # 主界面
-col1, col2 = st.columns([3, 1])
+st.markdown("### 📅 查询设置")
+
+col1, col2 = st.columns([2, 1])
 
 with col1:
     date_input = st.date_input(
-        "请选择查询日期:",
-        value=datetime.date.today(),
-        help="选择要查询的日期"
+        "选择查询日期:",
+        value=datetime.date.today()
     )
 
 with col2:
-    st.write("")
+    run_mode = st.selectbox(
+        "运行模式:",
+        ["🚀 快速模式（跳过慢脚本）", "🔧 完整模式（处理所有脚本）"],
+        index=0,
+        help="快速模式跳过经常出错的日本脚本，1-2分钟完成"
+    )
+    fast_mode = "快速模式" in run_mode
+    
     st.write("")
     query_button = st.button("🔍 开始查询", type="primary", use_container_width=True)
 
 # 查询逻辑
 if query_button:
-    # 清空之前的日志
     st.session_state.debug_logs = []
     
     date_str = date_input.strftime("%Y-%m-%d")
-    add_log(f"开始查询日期: {date_str}", "INFO")
+    add_log(f"开始查询日期: {date_str}, 模式: {'快速' if fast_mode else '完整'}", "INFO")
     
     # 状态显示
-    status_placeholder = st.empty()
-    progress_placeholder = st.empty()
-    log_placeholder = st.empty()
+    status_container = st.container()
+    progress_container = st.container()
     
-    def update_logs():
-        with log_placeholder.container():
-            with st.expander("📄 执行日志", expanded=True):
-                st.text_area("", "\n".join(st.session_state.debug_logs[-15:]), height=250, key=f"logs_{len(st.session_state.debug_logs)}")
+    with status_container:
+        status_text = st.empty()
+        progress_bar = st.progress(0)
     
-    # 构建命令（绝对不使用--json参数）
+    # 简化日志显示
+    log_container = st.container()
+    
+    # 构建命令
     command = [sys.executable, "run.py", "--date", date_str]
-    add_log(f"构建命令: {' '.join(command)}", "INFO")
-    update_logs()
+    if fast_mode:
+        command.append("--fast")
+    
+    add_log(f"执行命令: {' '.join(command)}", "INFO")
     
     try:
-        progress_bar = progress_placeholder.progress(0)
-        status_placeholder.info("🔄 正在查询，请稍候...")
-        
-        add_log("开始执行命令", "INFO")
-        update_logs()
-        
+        status_text.info("🔄 启动查询进程...")
         start_time = time.time()
         
-        # 使用实时输出监控
-        import threading
-        from queue import Queue
-        
-        def read_output(pipe, queue, prefix):
-            try:
-                for line in iter(pipe.readline, ''):
-                    if line.strip():
-                        queue.put((prefix, line.strip()))
-                pipe.close()
-            except:
-                pass
-        
-        # 启动进程
+        # 简化版实时监控
         process = subprocess.Popen(
             command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding="utf-8",
-            cwd=os.getcwd(),
             universal_newlines=True
         )
         
-        # 创建队列和线程
-        output_queue = Queue()
-        stdout_thread = threading.Thread(target=read_output, args=(process.stdout, output_queue, "OUT"))
-        stderr_thread = threading.Thread(target=read_output, args=(process.stderr, output_queue, "ERR"))
-        
-        stdout_thread.daemon = True
-        stderr_thread.daemon = True
-        stdout_thread.start()
-        stderr_thread.start()
-        
-        # 实时读取输出
         stdout_lines = []
         stderr_lines = []
-        last_update = time.time()
+        script_count = 0
+        last_script = ""
         
-        while process.poll() is None or not output_queue.empty():
+        # 实时读取（但减少界面更新频率）
+        expected_scripts = 12 if fast_mode else 15  # 快速模式跳过3个慢脚本
+        while process.poll() is None:
             try:
-                # 从队列读取输出
-                prefix, line = output_queue.get(timeout=1)
-                
-                if prefix == "OUT":
+                # 读取标准输出
+                line = process.stdout.readline()
+                if line:
+                    line = line.strip()
                     stdout_lines.append(line)
-                    add_log(f"实时输出: {line}", "DEBUG")
-                elif prefix == "ERR":
-                    stderr_lines.append(line)
-                    add_log(f"错误输出: {line}", "WARNING")
+                    
+                    # 检测脚本进度
+                    if "[INFO] 开始处理脚本:" in line or "[INFO] 进度" in line:
+                        script_count += 1
+                        if "进度" in line:
+                            # 从 "[INFO] 进度 X/Y: 脚本名" 中提取信息
+                            try:
+                                progress_part = line.split("进度")[1].split(":")[0].strip()
+                                current, total = progress_part.split("/")
+                                script_count = int(current)
+                                expected_scripts = int(total)
+                            except:
+                                pass
+                        
+                        last_script = line.split(":")[-1].strip()
+                        status_text.info(f"🔄 正在处理第 {script_count}/{expected_scripts} 个脚本: {last_script}")
+                        progress_bar.progress(min(0.9, script_count / expected_scripts))
+                    
+                    # 检测完成
+                    elif "▶" in line:
+                        add_log(f"获得结果: {line[:50]}...", "DEBUG")
                 
-                # 每2秒更新一次界面
-                if time.time() - last_update > 2:
-                    update_logs()
-                    # 根据输出行数更新进度
-                    progress = min(0.9, len(stdout_lines) * 0.03 + 0.1)
-                    progress_bar.progress(progress)
-                    last_update = time.time()
+                # 读取错误输出
+                err_line = process.stderr.readline()
+                if err_line:
+                    err_line = err_line.strip()
+                    stderr_lines.append(err_line)
+                    if "[Error]" in err_line:
+                        add_log(f"脚本错误: {err_line[:50]}...", "WARNING")
                 
-            except:
-                # 检查超时
-                if time.time() - start_time > 300:  # 5分钟超时
-                    add_log("执行超时，终止进程", "ERROR")
+                # 检查超时（总体超时8分钟）
+                if time.time() - start_time > 480:
+                    add_log("查询总体超时，终止进程", "ERROR")
                     process.terminate()
                     break
+                    
+            except:
                 continue
         
         # 等待进程结束
         return_code = process.wait()
         
-        # 模拟原来的返回结果
-        class ProcessResult:
-            def __init__(self, returncode, stdout_lines, stderr_lines):
-                self.returncode = returncode
-                self.stdout = '\n'.join(stdout_lines)
-                self.stderr = '\n'.join(stderr_lines)
-        
-        process = ProcessResult(return_code, stdout_lines, stderr_lines)
-        
         end_time = time.time()
         execution_time = end_time - start_time
         
-        add_log(f"命令执行完成，耗时: {execution_time:.2f}秒", "INFO")
-        add_log(f"返回码: {process.returncode}", "INFO")
+        add_log(f"执行完成，耗时: {execution_time:.1f}秒", "INFO")
         
-        progress_bar.progress(0.5)
-        update_logs()
+        progress_bar.progress(1.0)
         
-        # 检查执行结果
-        if process.returncode != 0:
-            add_log("命令执行失败", "ERROR")
-            add_log(f"错误信息: {process.stderr.strip()}", "ERROR")
+        # 处理结果
+        if return_code != 0:
+            status_text.error("❌ 查询失败")
+            st.error("❌ 查询过程出现错误")
             
-            status_placeholder.error("❌ 查询失败")
-            st.error("❌ 查询失败")
-            st.code(process.stderr.strip())
-            
-            with st.expander("🔍 调试信息"):
-                st.text("标准输出:")
-                st.code(process.stdout if process.stdout else "无输出")
-                st.text("错误输出:")
-                st.code(process.stderr if process.stderr else "无错误")
+            if stderr_lines:
+                with st.expander("🔍 错误信息"):
+                    st.code('\n'.join(stderr_lines[-10:]))  # 只显示最后10行错误
         else:
-            add_log("命令执行成功，开始解析输出", "SUCCESS")
+            status_text.success(f"✅ 查询完成 (耗时 {execution_time:.1f}秒)")
             
-            # 解析输出
-            output_lines = process.stdout.splitlines()
-            add_log(f"输出共 {len(output_lines)} 行", "INFO")
-            
+            # 快速解析结果
             data = []
-            for i, line in enumerate(output_lines):
-                line = line.strip()
-                if not line:
-                    continue
-                
-                # 跳过不相关的行
-                if line.startswith("✅") or "已将结果导出到" in line:
-                    add_log(f"跳过状态行: {line[:50]}...", "DEBUG")
-                    continue
-                
+            for line in stdout_lines:
                 parsed = parse_run_output_line(line)
                 if parsed:
                     script, title, link, status = parsed
@@ -322,126 +264,73 @@ if query_button:
                         'link': link,
                         'status': status
                     })
-                    add_log(f"解析成功: {script} -> {status}", "SUCCESS")
-                else:
-                    add_log(f"无法解析: {line[:50]}...", "WARNING")
-            
-            progress_bar.progress(0.8)
-            update_logs()
-            
-            add_log(f"解析完成，获得 {len(data)} 条记录", "SUCCESS")
             
             if not data:
-                status_placeholder.warning("⚠️ 没有解析到任何数据")
-                
-                with st.expander("🔍 原始输出（调试用）"):
-                    st.text("完整输出:")
-                    st.code(process.stdout)
-                    st.text("逐行分析:")
-                    for i, line in enumerate(output_lines[:20]):
-                        st.text(f"第{i+1}行: {repr(line)}")
+                st.warning("⚠️ 没有解析到任何数据")
+                with st.expander("🔍 原始输出"):
+                    st.code('\n'.join(stdout_lines[-20:]))  # 只显示最后20行
             else:
-                # 创建DataFrame
                 df = pd.DataFrame(data)
                 
-                # 统计
+                # 快速统计
                 total = len(df)
                 success = len(df[df['status'] == 'success'])
                 no_match = len(df[df['status'] == 'no_match'])
-                empty = len(df[df['status'] == 'empty'])
                 error = len(df[df['status'].isin(['error', 'timeout'])])
                 
-                add_log(f"统计: 总数{total}, 成功{success}, 无匹配{no_match}, 空{empty}, 错误{error}", "INFO")
+                # 结果展示
+                st.markdown("### 📊 查询结果")
                 
-                status_placeholder.success(f"✅ 查询完成！获得 {success} 条有效记录")
-                progress_bar.progress(1.0)
+                # 紧凑的统计显示
+                metric_col1, metric_col2, metric_col3, metric_col4 = st.columns(4)
+                with metric_col1:
+                    st.metric("✅ 成功", success)
+                with metric_col2:
+                    st.metric("⚠️ 无匹配", no_match)
+                with metric_col3:
+                    st.metric("❌ 错误", error)
+                with metric_col4:
+                    st.metric("⏱️ 耗时", f"{execution_time:.1f}s")
                 
-                # 显示统计
-                st.markdown("### 📊 查询结果统计")
-                col1, col2, col3, col4, col5 = st.columns(5)
-                with col1:
-                    st.metric("总数据源", total)
-                with col2:
-                    st.metric("✅ 成功获取", success)
-                with col3:
-                    st.metric("⚠️ 无匹配记录", no_match)
-                with col4:
-                    st.metric("❌ 脚本错误", error)
-                with col5:
-                    st.metric("📝 其他状态", empty)
-                
-                # 如果有错误，显示错误汇总
+                # 如果有错误，简单显示
                 if error > 0:
                     error_scripts = df[df['status'].isin(['error', 'timeout'])]['script'].tolist()
-                    with st.expander(f"⚠️ 发现 {error} 个脚本执行异常", expanded=False):
-                        st.write("**异常脚本列表：**")
-                        for script in error_scripts:
-                            status = df[df['script'] == script]['status'].iloc[0]
-                            if status == 'timeout':
-                                st.write(f"• {script} （⏰ 执行超时）")
-                            else:
-                                st.write(f"• {script} （❌ 脚本错误）")
-                        
-                        st.write("**常见原因：**")
-                        st.write("- 网络连接超时（60秒）")
-                        st.write("- 目标网站无法访问")
-                        st.write("- 浏览器驱动程序问题")
-                        st.write("- 脚本代码错误")
-                        
-                        st.write("**解决建议：**")
-                        st.write("- 检查网络连接")
-                        st.write("- 稍后重试")
-                        st.write("- 查看详细执行日志")
+                    st.warning(f"⚠️ {error} 个脚本异常: {', '.join(error_scripts)}")
                 
-                st.markdown("---")
-                
-                # 筛选选项
-                filter_col1, filter_col2 = st.columns(2)
-                with filter_col1:
-                    show_filter = st.selectbox(
-                        "显示筛选:",
-                        ["全部", "仅成功", "仅无匹配", "仅错误", "仅空记录"],
-                        index=0
-                    )
-                with filter_col2:
-                    show_empty_titles = st.checkbox("显示空标题", value=True)
+                # 简化的筛选
+                show_filter = st.selectbox(
+                    "显示筛选:",
+                    ["仅成功", "全部", "仅错误"],
+                    index=0
+                )
                 
                 # 应用筛选
-                filtered_df = df.copy()
-                
                 if show_filter == "仅成功":
-                    filtered_df = filtered_df[filtered_df['status'] == 'success']
-                elif show_filter == "仅无匹配":
-                    filtered_df = filtered_df[filtered_df['status'] == 'no_match']
+                    filtered_df = df[df['status'] == 'success']
                 elif show_filter == "仅错误":
-                    filtered_df = filtered_df[filtered_df['status'].isin(['error', 'timeout'])]
-                elif show_filter == "仅空记录":
-                    filtered_df = filtered_df[filtered_df['status'] == 'empty']
+                    filtered_df = df[df['status'].isin(['error', 'timeout'])]
+                else:
+                    filtered_df = df.copy()
                 
-                if not show_empty_titles:
-                    filtered_df = filtered_df[filtered_df['title'].str.strip() != '']
-                
-                # 显示数据
+                # 显示结果表格
                 if len(filtered_df) > 0:
-                    # 准备显示数据
                     display_df = filtered_df.copy()
                     
-                    # 状态中文化
+                    # 状态符号化
                     status_map = {
-                        'success': '✅ 成功',
-                        'no_match': '⚠️ 无匹配',
-                        'empty': '📝 空结果',
-                        'error': '❌ 脚本错误',
-                        'timeout': '⏰ 执行超时'
+                        'success': '✅',
+                        'no_match': '⚠️',
+                        'empty': '📝',
+                        'error': '❌',
+                        'timeout': '⏰'
                     }
-                    display_df['status_cn'] = display_df['status'].map(status_map)
+                    display_df['状态'] = display_df['status'].map(status_map)
                     
-                    # 重新排列列
-                    display_df = display_df[['script', 'title', 'link', 'status_cn']].rename(columns={
+                    # 重命名并选择列
+                    display_df = display_df[['script', 'title', 'link', '状态']].rename(columns={
                         'script': '数据源',
                         'title': '标题',
-                        'link': '链接',
-                        'status_cn': '状态'
+                        'link': '链接'
                     })
                     
                     st.dataframe(
@@ -449,86 +338,82 @@ if query_button:
                         use_container_width=True,
                         hide_index=True,
                         column_config={
-                            "链接": st.column_config.LinkColumn("链接"),
+                            "链接": st.column_config.LinkColumn("链接")
                         }
                     )
                     
-                    # 下载按钮
-                    st.markdown("---")
-                    download_col1, download_col2 = st.columns(2)
-                    
-                    with download_col1:
-                        csv_data = filtered_df.drop('status', axis=1).to_csv(index=False, encoding='utf-8')
+                    # 下载
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        csv_data = filtered_df[['script', 'title', 'link']].to_csv(index=False, encoding='utf-8')
                         st.download_button(
-                            label="📥 下载 CSV",
-                            data=csv_data.encode('utf-8'),
-                            file_name=f"海事舆情_{date_str}.csv",
-                            mime="text/csv",
+                            "📥 下载 CSV",
+                            csv_data.encode('utf-8'),
+                            f"海事舆情_{date_str}.csv",
+                            "text/csv",
                             use_container_width=True
                         )
                     
-                    with download_col2:
-                        # 简单的文本格式下载
-                        text_data = ""
+                    with col2:
+                        # 简单统计下载
+                        summary = f"查询日期: {date_str}\n"
+                        summary += f"总数据源: {total}\n"
+                        summary += f"成功获取: {success}\n"
+                        summary += f"无匹配: {no_match}\n"
+                        summary += f"错误: {error}\n"
+                        summary += f"查询耗时: {execution_time:.1f}秒\n\n"
+                        
                         for _, row in filtered_df.iterrows():
-                            if row['title'] and row['link']:
-                                text_data += f"{row['script']}: {row['title']} - {row['link']}\n"
+                            if row['status'] == 'success':
+                                summary += f"{row['script']}: {row['title']}\n{row['link']}\n\n"
                         
                         st.download_button(
-                            label="📥 下载 TXT",
-                            data=text_data.encode('utf-8'),
-                            file_name=f"海事舆情_{date_str}.txt",
-                            mime="text/plain",
+                            "📥 下载报告",
+                            summary.encode('utf-8'),
+                            f"海事舆情报告_{date_str}.txt",
+                            "text/plain",
                             use_container_width=True
                         )
                 else:
-                    st.info("ℹ️ 根据筛选条件，没有找到匹配的记录")
+                    st.info("ℹ️ 当前筛选条件下无结果")
         
-        update_logs()
+        # 简化的日志显示
+        with log_container:
+            with st.expander(f"📄 执行日志 ({len(st.session_state.debug_logs)} 条)", expanded=False):
+                if st.session_state.debug_logs:
+                    # 只显示最重要的日志
+                    important_logs = [log for log in st.session_state.debug_logs 
+                                    if "WARNING" in log or "ERROR" in log or "开始" in log or "完成" in log]
+                    st.text_area("", "\n".join(important_logs[-10:]), height=200)
         
-    except subprocess.TimeoutExpired:
-        add_log("查询超时", "ERROR")
-        status_placeholder.error("❌ 查询超时")
-        st.error("❌ 查询超时（超过5分钟）")
-        update_logs()
     except Exception as e:
-        add_log(f"发生异常: {str(e)}", "ERROR")
-        status_placeholder.error("❌ 查询异常")
-        st.error(f"❌ 查询过程中发生错误: {str(e)}")
-        update_logs()
+        status_text.error("❌ 查询异常")
+        st.error(f"❌ 发生错误: {str(e)}")
+        add_log(f"异常: {str(e)}", "ERROR")
 
-# 侧边栏
+# 简化的侧边栏
 with st.sidebar:
-    st.markdown("### 📋 使用指南")
+    st.markdown("### ⚡ 智能优化版")
     st.markdown("""
-    1. 🗓️ 选择查询日期
-    2. 🔍 点击开始查询
-    3. ⏳ 等待执行完成
-    4. 📊 查看结果统计
-    5. 📥 下载数据文件
+    **核心优化:**
+    - 🎯 **智能分类**：快/中/慢脚本分别处理
+    - ⚡ **快速模式**：跳过经常出错的慢脚本
+    - ⏱️ **差异化超时**：慢脚本15秒快速跳过
+    - 📊 **优先处理**：先处理快速稳定的脚本
+    
+    **时间预期:**
+    - 🚀 快速模式：1-2分钟（12个脚本）
+    - 🔧 完整模式：2-4分钟（15个脚本）
+    
+    **跳过的脚本:**
+    - 日本外务省（经常崩溃）
+    - 日本海上保安大学校（网络慢）
+    - 日本海上保安厅（驱动问题）
     """)
     
-    st.markdown("### 📊 数据源")
-    scripts_info = [
-        "中国外交部", "国际海事组织", "世界贸易组织", 
-        "日本外务省", "联合国海洋法庭", "国际海底管理局",
-        "战略与国际研究中心", "美国国务院", "美国运输部海事管理局",
-        "中国海事局", "日本海上保安大学校", "日本海上保安厅",
-        "太平洋岛国论坛", "越南外交部", "越南外交学院"
-    ]
+    st.markdown(f"### 📊 环境状态")
+    st.markdown(f"- run.py: {'✅' if run_py_ok else '❌'}")
+    st.markdown(f"- 脚本: {existing_scripts}/{total_scripts}")
     
-    for script in scripts_info:
-        st.text(f"• {script}")
-    
-    st.markdown("### ⚠️ 注意事项")
-    st.markdown("""
-    - 查询时间：1-5分钟
-    - 需要网络连接
-    - 部分源可能暂时不可用
-    - 查看日志了解详情
-    - 单个脚本60秒超时
-    """)
-    
-    if st.button("🔄 重新检查环境"):
-        st.session_state.debug_logs = []
+    if st.button("🔄 刷新状态"):
         st.experimental_rerun()
