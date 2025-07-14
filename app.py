@@ -176,83 +176,15 @@ if query_button:
         
         start_time = time.time()
         
-        # 使用实时输出监控
-        import threading
-        from queue import Queue
-        
-        def read_output(pipe, queue, prefix):
-            try:
-                for line in iter(pipe.readline, ''):
-                    if line.strip():
-                        queue.put((prefix, line.strip()))
-                pipe.close()
-            except:
-                pass
-        
-        # 启动进程
-        process = subprocess.Popen(
+        # 执行命令
+        process = subprocess.run(
             command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding="utf-8",
             cwd=os.getcwd(),
-            universal_newlines=True
+            timeout=300
         )
-        
-        # 创建队列和线程
-        output_queue = Queue()
-        stdout_thread = threading.Thread(target=read_output, args=(process.stdout, output_queue, "OUT"))
-        stderr_thread = threading.Thread(target=read_output, args=(process.stderr, output_queue, "ERR"))
-        
-        stdout_thread.daemon = True
-        stderr_thread.daemon = True
-        stdout_thread.start()
-        stderr_thread.start()
-        
-        # 实时读取输出
-        stdout_lines = []
-        stderr_lines = []
-        last_update = time.time()
-        
-        while process.poll() is None or not output_queue.empty():
-            try:
-                # 从队列读取输出
-                prefix, line = output_queue.get(timeout=1)
-                
-                if prefix == "OUT":
-                    stdout_lines.append(line)
-                    add_log(f"实时输出: {line}", "DEBUG")
-                elif prefix == "ERR":
-                    stderr_lines.append(line)
-                    add_log(f"错误输出: {line}", "WARNING")
-                
-                # 每2秒更新一次界面
-                if time.time() - last_update > 2:
-                    update_logs()
-                    # 根据输出行数更新进度
-                    progress = min(0.9, len(stdout_lines) * 0.03 + 0.1)
-                    progress_bar.progress(progress)
-                    last_update = time.time()
-                
-            except:
-                # 检查超时
-                if time.time() - start_time > 300:  # 5分钟超时
-                    add_log("执行超时，终止进程", "ERROR")
-                    process.terminate()
-                    break
-                continue
-        
-        # 等待进程结束
-        return_code = process.wait()
-        
-        # 模拟原来的返回结果
-        class ProcessResult:
-            def __init__(self, returncode, stdout_lines, stderr_lines):
-                self.returncode = returncode
-                self.stdout = '\n'.join(stdout_lines)
-                self.stderr = '\n'.join(stderr_lines)
-        
-        process = ProcessResult(return_code, stdout_lines, stderr_lines)
         
         end_time = time.time()
         execution_time = end_time - start_time
