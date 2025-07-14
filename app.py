@@ -194,7 +194,7 @@ if query_button:
     add_log("准备执行查询命令", "INFO")
     update_log_display()
     
-    # 构建命令（不使用--json参数）
+    # 构建命令（原版run.py不支持--json参数）
     cmd = [sys.executable, "run.py", "--date", date_str]
     add_log(f"执行命令: {' '.join(cmd)}", "INFO")
     update_log_display()
