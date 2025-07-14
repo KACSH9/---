@@ -1,3 +1,12 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+抓取日本海上保安厅官网三类信息：
+1. 海上事故信息（requests）
+2. 海上安全信息（Selenium 动态加载）
+3. 新闻发布信息（requests）
+"""
+
 import requests
 from lxml import etree
 from urllib.parse import urljoin
@@ -6,9 +15,6 @@ import re
 import time
 from datetime import datetime
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
@@ -44,46 +50,43 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Mobile Safari/537.36 Edg/138.0.0.0"
 }
 
-resp = requests.get(base_url, headers=headers)
-encoding = chardet.detect(resp.content)['encoding']
-resp.encoding = encoding
-html = etree.HTML(resp.text)
-items = html.xpath('//ul[@class="link"]/dt/li')
+try:
+    resp = requests.get(base_url, headers=headers)
+    encoding = chardet.detect(resp.content)['encoding']
+    resp.encoding = encoding
+    html = etree.HTML(resp.text)
+    items = html.xpath('//ul[@class="link"]/dt/li')
 
-for item in items:
-    title = item.xpath('.//a/text()')
-    link = item.xpath('.//a/@href')
+    for item in items:
+        title = item.xpath('.//a/text()')
+        link = item.xpath('.//a/@href')
 
-    title_str = title[0].strip() if title else ''
-    link_str = urljoin(base_url, link[0].strip()) if link else ''
+        title_str = title[0].strip() if title else ''
+        link_str = urljoin(base_url, link[0].strip()) if link else ''
 
-    try:
-        detail_resp = requests.get(link_str, headers=headers, timeout=10)
-        detail_encoding = chardet.detect(detail_resp.content)['encoding']
-        detail_resp.encoding = detail_encoding
-        detail_html = etree.HTML(detail_resp.text)
+        try:
+            detail_resp = requests.get(link_str, headers=headers, timeout=10)
+            detail_encoding = chardet.detect(detail_resp.content)['encoding']
+            detail_resp.encoding = detail_encoding
+            detail_html = etree.HTML(detail_resp.text)
 
-        desc = detail_html.xpath('//meta[@name="description"]/@content')
-        desc_text = desc[0] if desc else ''
+            desc = detail_html.xpath('//meta[@name="description"]/@content')
+            desc_text = desc[0] if desc else ''
 
-        match = re.search(r'令和\d+年\d+月\d+日', desc_text)
-        reiwa_date = match.group() if match else '未知'
-        pub_date = convert_reiwa_date(reiwa_date)
+            match = re.search(r'令和\d+年\d+月\d+日', desc_text)
+            reiwa_date = match.group() if match else '未知'
+            pub_date = convert_reiwa_date(reiwa_date)
 
-        print(f"{pub_date} {title_str} {link_str}")
-        time.sleep(1)
+            print(f"{pub_date} {title_str} {link_str}")
+            time.sleep(1)
 
-    except Exception as e:
-        print(f"[错误] {link_str} 请求失败：{e}")
+        except Exception as e:
+            print(f"[错误] {link_str} 请求失败：{e}")
+except Exception as e:
+    print(f"[错误] 主页面解析失败：{e}")
 
 # ------------------ 2. 海上安全信息（动态加载） ------------------
 print('----------海上安全信息----------')
-
-try:
-    from webdriver_manager.chrome import ChromeDriverManager
-    USE_MANAGER = True
-except ImportError:
-    USE_MANAGER = False
 
 class MaritimeSafetyInfoScraper:
     def __init__(self, headless=True):
@@ -114,14 +117,13 @@ class MaritimeSafetyInfoScraper:
 
     def init_driver(self):
         try:
-            if USE_MANAGER:
-                service = Service(ChromeDriverManager().install())
-                self.driver = webdriver.Chrome(service=service, options=self.chrome_options)
-            else:
-                self.driver = webdriver.Chrome(options=self.chrome_options)
+            # ✅ 使用本地 chromedriver
+            service = Service("/usr/local/bin/chromedriver")
+            self.driver = webdriver.Chrome(service=service, options=self.chrome_options)
             self.driver.implicitly_wait(10)
             return True
-        except Exception:
+        except Exception as e:
+            print("[错误] WebDriver 初始化失败：", e)
             return False
 
     def close_driver(self):
@@ -173,19 +175,22 @@ scraper.run()
 # ------------------ 3. 新闻发布 ------------------
 print('----------新闻发布----------')
 url_n = 'https://www.kaiho.mlit.go.jp/info/kouhou/'
-resp = requests.get(url_n, headers=headers)
-encoding = chardet.detect(resp.content)['encoding']
-resp.encoding = encoding
-html = etree.HTML(resp.content)
-items = html.xpath('//div[@class="entryList clearfix"]//ul/li')[:10]
+try:
+    resp = requests.get(url_n, headers=headers)
+    encoding = chardet.detect(resp.content)['encoding']
+    resp.encoding = encoding
+    html = etree.HTML(resp.content)
+    items = html.xpath('//div[@class="entryList clearfix"]//ul/li')[:10]
 
-for item in items:
-    date_raw = item.xpath('.//h3/text()')
-    raw_date = date_raw[0].strip().split('\xa0')[0] if date_raw else ''
-    date = convert_short_japanese_date(raw_date)
+    for item in items:
+        date_raw = item.xpath('.//h3/text()')
+        raw_date = date_raw[0].strip().split('\xa0')[0] if date_raw else ''
+        date = convert_short_japanese_date(raw_date)
 
-    a_tag = item.xpath('.//a')[0]
-    title = a_tag.xpath('string(.)').strip()
-    link = urljoin(url_n, a_tag.get('href'))
+        a_tag = item.xpath('.//a')[0]
+        title = a_tag.xpath('string(.)').strip()
+        link = urljoin(url_n, a_tag.get('href'))
 
-    print(f"{date} {title} {link}")
+        print(f"{date} {title} {link}")
+except Exception as e:
+    print(f"[错误] 新闻发布抓取失败：{e}")
