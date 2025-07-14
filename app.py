@@ -1,54 +1,32 @@
+# app.py
 import streamlit as st
 import subprocess
 import sys
-import os
+import pandas as pd
+from pathlib import Path
 
-# Streamlit 页面设置
-st.set_page_config(page_title="网站抓取系统", layout="wide")
-st.title("📌 网站抓取系统")
+st.set_page_config(page_title="舆情信息查询平台", layout="centered")
+st.title("📅 海事舆情每日监测平台")
 
-# 获取当前目录下所有的.py脚本
-scripts = [f for f in os.listdir('.') if f.endswith('.py') and f not in ['run.py', 'app.py']]
+# 日期输入
+date = st.date_input("请选择查询日期：")
+date_str = date.strftime("%Y-%m-%d")
 
-# 选择要运行的脚本
-selected_script = st.selectbox('选择要抓取的网站脚本：', scripts)
-
-# 输入日期
-selected_date = st.date_input('选择日期：')
-date_str = selected_date.strftime('%Y-%m-%d')
-
-# 定义函数运行抓取脚本
-def run_script(script_name, date_str):
-    try:
+if st.button("🔍 查询"):
+    with st.spinner("正在运行爬虫，请稍候..."):
         result = subprocess.run(
-            [sys.executable, 'run.py', script_name, date_str],
+            [sys.executable, "run.py", "-d", date_str],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
-            encoding='utf-8',
-            check=True
+            encoding="utf-8"
         )
-        return result.stdout.splitlines()
-    except subprocess.CalledProcessError as e:
-        st.error(f"运行脚本出错: {e.stderr}")
-        return []
+        st.text(result.stdout)
 
-# 添加按钮触发抓取
-if st.button('🚀 开始抓取'):
-    with st.spinner('正在抓取数据，请稍候...'):
-        lines = run_script(selected_script, date_str)
-
-        if not lines:
-            st.warning("没有抓取到相关数据，请检查脚本或日期是否正确。");
-        else:
-            st.success(f"抓取完成，共 {len(lines)} 条记录。");
-            for line in lines:
-                parts = line.strip().split()
-                # 假设脚本输出格式为：日期 题目 链接
-                if len(parts) >= 3:
-                    date = parts[0]
-                    title = " ".join(parts[1:-1])
-                    link = parts[-1]
-                    st.markdown(f"- 📅 **{date}** [{title}]({link})")
-                else:
-                    st.write(line)
-
+    csv_path = f"results_{date_str}.csv"
+    if Path(csv_path).exists():
+        df = pd.read_csv(csv_path)
+        st.success(f"查询成功，共 {len(df)} 条记录：")
+        st.dataframe(df)
+        st.download_button("📥 下载 CSV", df.to_csv(index=False), file_name=csv_path)
+    else:
+        st.warning("未找到结果文件，可能没有该日期的数据。")
