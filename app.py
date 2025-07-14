@@ -1,11 +1,10 @@
-# app.py - 简化可靠版
+# app.py - 最简工作版
 import streamlit as st
 import subprocess
 import sys
 import pandas as pd
 import datetime
 from pathlib import Path
-import time
 
 # 页面配置
 st.set_page_config(
@@ -79,8 +78,7 @@ col1, col2 = st.columns([3, 1])
 with col1:
     date_input = st.date_input(
         "请选择查询日期:",
-        value=datetime.date.today(),
-        help="选择要查询的日期"
+        value=datetime.date.today()
     )
 
 with col2:
@@ -97,214 +95,151 @@ if query_button:
         st.error("❌ 找不到 run.py 文件")
         st.stop()
 
-    # 显示查询状态
-    status_placeholder = st.empty()
-    progress_placeholder = st.empty()
-    
-    with status_placeholder.container():
-        st.info("🔄 正在查询，请稍候...")
-    
-    with progress_placeholder.container():
-        progress_bar = st.progress(0)
-        progress_text = st.empty()
-    
     # 构建命令
     command = [sys.executable, "run.py", "--date", date_str]
-
-    try:
-        start_time = time.time()
-        
-        # 更新进度
-        progress_bar.progress(0.1)
-        progress_text.text("正在启动查询进程...")
-        
-        # 执行命令（简化版本，不使用实时监控）
-        result = subprocess.run(
-            command,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            encoding="utf-8",
-            timeout=300  # 5分钟超时
-        )
-        
-        end_time = time.time()
-        execution_time = end_time - start_time
-        
-        # 完成进度
-        progress_bar.progress(1.0)
-        progress_text.text("✅ 查询完成")
-
-        # 处理结果
-        if result.returncode != 0:
-            status_placeholder.error("❌ 查询失败")
-            st.error("❌ 查询失败")
-            if result.stderr:
-                st.code(result.stderr.strip())
-        else:
-            status_placeholder.success(f"✅ 查询完成 (耗时 {execution_time:.1f}秒)")
-
-            # 解析输出
-            data = []
-            output_lines = result.stdout.splitlines()
+    
+    # 显示查询状态
+    with st.spinner("🔄 正在查询，请稍候..."):
+        try:
+            # 执行命令
+            result = subprocess.run(
+                command,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                encoding="utf-8",
+                timeout=300,  # 5分钟超时
+                cwd="."
+            )
             
-            for line in output_lines:
-                # 跳过不相关的行
-                if line.startswith("✅") or "已将结果导出到" in line:
-                    continue
-                    
-                parsed = parse_run_output_line(line)
-                if parsed:
-                    script, title, link, status = parsed
-                    data.append({
-                        'script': script,
-                        'title': title,
-                        'link': link,
-                        'status': status
-                    })
-
-            if not data:
-                st.warning("⚠️ 没有解析到任何数据")
-                with st.expander("🔍 原始输出"):
+            st.write(f"**执行命令:** `{' '.join(command)}`")
+            st.write(f"**返回码:** {result.returncode}")
+            
+            # 处理结果
+            if result.returncode != 0:
+                st.error("❌ 查询失败")
+                if result.stderr:
+                    st.code(result.stderr)
+                if result.stdout:
+                    st.text("标准输出:")
                     st.code(result.stdout)
             else:
-                df = pd.DataFrame(data)
+                st.success("✅ 查询完成")
+                
+                # 显示原始输出（调试用）
+                if result.stdout:
+                    with st.expander("🔍 原始输出", expanded=True):
+                        st.code(result.stdout)
+                
+                # 解析输出
+                data = []
+                output_lines = result.stdout.splitlines()
+                
+                st.write(f"**输出行数:** {len(output_lines)}")
+                
+                for i, line in enumerate(output_lines):
+                    if not line.strip():
+                        continue
+                        
+                    # 跳过不相关的行
+                    if line.startswith("✅") or "已将结果导出到" in line:
+                        continue
+                        
+                    parsed = parse_run_output_line(line)
+                    if parsed:
+                        script, title, link, status = parsed
+                        data.append({
+                            'script': script,
+                            'title': title,
+                            'link': link,
+                            'status': status
+                        })
+                        st.write(f"✅ 解析成功: {script} -> {status}")
+                    else:
+                        st.write(f"⚠️ 无法解析: {line}")
 
-                # 统计
-                total = len(df)
-                success = len(df[df['status'] == 'success'])
-                no_match = len(df[df['status'] == 'no_match'])
-                error = len(df[df['status'].isin(['error', 'timeout'])])
-                empty = len(df[df['status'] == 'empty'])
+                st.write(f"**解析到的数据条数:** {len(data)}")
 
-                # 显示统计
-                st.markdown("### 📊 查询结果统计")
-                col1, col2, col3, col4, col5 = st.columns(5)
-                with col1:
-                    st.metric("总数据源", total)
-                with col2:
-                    st.metric("✅ 成功获取", success)
-                with col3:
-                    st.metric("⚠️ 无匹配记录", no_match)
-                with col4:
-                    st.metric("❌ 脚本错误", error)
-                with col5:
-                    st.metric("📝 其他状态", empty)
+                if data:
+                    df = pd.DataFrame(data)
 
-                # 如果有错误，显示简要信息
-                if error > 0:
-                    error_scripts = df[df['status'].isin(['error', 'timeout'])]['script'].tolist()
-                    st.warning(f"⚠️ {error} 个脚本异常: {', '.join(error_scripts[:3])}{'...' if len(error_scripts) > 3 else ''}")
+                    # 统计
+                    total = len(df)
+                    success = len(df[df['status'] == 'success'])
+                    no_match = len(df[df['status'] == 'no_match'])
+                    error = len(df[df['status'].isin(['error', 'timeout'])])
 
-                st.markdown("---")
+                    # 显示统计
+                    st.markdown("### 📊 查询结果统计")
+                    col1, col2, col3, col4 = st.columns(4)
+                    with col1:
+                        st.metric("总数据源", total)
+                    with col2:
+                        st.metric("✅ 成功", success)
+                    with col3:
+                        st.metric("⚠️ 无匹配", no_match)
+                    with col4:
+                        st.metric("❌ 错误", error)
 
-                # 筛选选项
-                filter_col1, filter_col2 = st.columns(2)
-                with filter_col1:
+                    # 筛选选项
                     show_filter = st.selectbox(
                         "显示筛选:",
-                        ["仅成功", "全部", "仅错误", "仅无匹配"],
+                        ["全部", "仅成功", "仅错误", "仅无匹配"],
                         index=0
                     )
-                with filter_col2:
-                    show_empty_titles = st.checkbox("显示空标题", value=True)
 
-                # 应用筛选
-                filtered_df = df.copy()
+                    # 应用筛选
+                    if show_filter == "仅成功":
+                        filtered_df = df[df['status'] == 'success']
+                    elif show_filter == "仅错误":
+                        filtered_df = df[df['status'].isin(['error', 'timeout'])]
+                    elif show_filter == "仅无匹配":
+                        filtered_df = df[df['status'] == 'no_match']
+                    else:
+                        filtered_df = df.copy()
 
-                if show_filter == "仅成功":
-                    filtered_df = filtered_df[filtered_df['status'] == 'success']
-                elif show_filter == "仅错误":
-                    filtered_df = filtered_df[filtered_df['status'].isin(['error', 'timeout'])]
-                elif show_filter == "仅无匹配":
-                    filtered_df = filtered_df[filtered_df['status'] == 'no_match']
+                    # 显示数据
+                    if len(filtered_df) > 0:
+                        # 准备显示数据
+                        display_df = filtered_df.copy()
 
-                if not show_empty_titles:
-                    filtered_df = filtered_df[filtered_df['title'].str.strip() != '']
-
-                # 显示数据
-                if len(filtered_df) > 0:
-                    # 准备显示数据
-                    display_df = filtered_df.copy()
-
-                    # 状态符号化
-                    status_map = {
-                        'success': '✅',
-                        'no_match': '⚠️',
-                        'empty': '📝',
-                        'error': '❌',
-                        'timeout': '⏰'
-                    }
-                    display_df['状态'] = display_df['status'].map(status_map)
-
-                    # 选择显示列
-                    display_df = display_df[['script', 'title', 'link', '状态']].rename(columns={
-                        'script': '数据源',
-                        'title': '标题',
-                        'link': '链接'
-                    })
-
-                    st.dataframe(
-                        display_df,
-                        use_container_width=True,
-                        hide_index=True,
-                        column_config={
-                            "链接": st.column_config.LinkColumn("链接")
+                        # 状态符号化
+                        status_map = {
+                            'success': '✅',
+                            'no_match': '⚠️',
+                            'empty': '📝',
+                            'error': '❌',
+                            'timeout': '⏰'
                         }
-                    )
+                        display_df['状态'] = display_df['status'].map(status_map)
 
-                    # 下载按钮
-                    st.markdown("---")
-                    download_col1, download_col2 = st.columns(2)
+                        # 选择显示列
+                        display_df = display_df[['script', 'title', 'link', '状态']].rename(columns={
+                            'script': '数据源',
+                            'title': '标题',
+                            'link': '链接'
+                        })
 
-                    with download_col1:
+                        st.dataframe(
+                            display_df,
+                            use_container_width=True,
+                            hide_index=True
+                        )
+
+                        # 下载按钮
                         csv_data = filtered_df[['script', 'title', 'link']].to_csv(index=False, encoding='utf-8')
                         st.download_button(
                             label="📥 下载 CSV",
                             data=csv_data.encode('utf-8'),
                             file_name=f"海事舆情_{date_str}.csv",
-                            mime="text/csv",
-                            use_container_width=True
+                            mime="text/csv"
                         )
-
-                    with download_col2:
-                        # 简单的文本格式下载
-                        text_data = f"海事舆情查询结果 - {date_str}\n"
-                        text_data += f"查询时间: {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
-                        text_data += f"总计: {total} 个数据源, 成功: {success} 个\n\n"
-                        
-                        for _, row in filtered_df.iterrows():
-                            if row['status'] == 'success' and row['title'] and row['link']:
-                                text_data += f"{row['script']}: {row['title']}\n{row['link']}\n\n"
-
-                        st.download_button(
-                            label="📥 下载 TXT",
-                            data=text_data.encode('utf-8'),
-                            file_name=f"海事舆情_{date_str}.txt",
-                            mime="text/plain",
-                            use_container_width=True
-                        )
+                    else:
+                        st.info("ℹ️ 当前筛选条件下无结果")
                 else:
-                    st.info("ℹ️ 根据筛选条件，没有找到匹配的记录")
+                    st.warning("⚠️ 没有解析到任何数据")
 
-    except subprocess.TimeoutExpired:
-        status_placeholder.error("❌ 查询超时")
-        st.error("❌ 查询超时（超过5分钟）")
-    except Exception as e:
-        status_placeholder.error("❌ 查询异常")
-        st.error(f"❌ 查询过程中发生错误: {str(e)}")
-    finally:
-        # 清理进度显示
-        progress_placeholder.empty()
-
-# 极简侧边栏
-with st.sidebar:
-    st.markdown("### ⚡ 功能特点")
-    st.markdown("""
-    - 🚀 智能进度显示
-    - 📊 实时状态更新  
-    - 🎯 结果筛选功能
-    - 📥 多格式下载
-    """)
-    
-    if st.button("🔄 刷新页面"):
-        st.experimental_rerun()
+        except subprocess.TimeoutExpired:
+            st.error("❌ 查询超时（5分钟）")
+        except Exception as e:
+            st.error(f"❌ 发生错误: {str(e)}")
+            st.code(str(e))
