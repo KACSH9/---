@@ -1,4 +1,4 @@
-# app.py - 精简优化版
+# app.py - 简化可靠版
 import streamlit as st
 import subprocess
 import sys
@@ -6,8 +6,6 @@ import pandas as pd
 import datetime
 from pathlib import Path
 import time
-import threading
-from queue import Queue
 
 # 页面配置
 st.set_page_config(
@@ -24,20 +22,16 @@ def parse_run_output_line(line):
     line = line.strip()
 
     # 处理错误信息
-    if line.startswith("[Error] 调用") and "失败" in line:
+    if "[Error]" in line and "调用" in line:
         try:
-            script_part = line.split("调用")[1].split("失败")[0].strip()
-            return (script_part, "", "", "error")
+            if "失败" in line:
+                script_part = line.split("调用")[1].split("失败")[0].strip()
+                return (script_part, "", "", "error")
+            elif "超时" in line:
+                script_part = line.split("调用")[1].split("超时")[0].strip()
+                return (script_part, "", "", "timeout")
         except:
             return ("未知脚本", "", "", "error")
-
-    # 处理超时信息
-    if line.startswith("[Error] 调用") and "超时" in line:
-        try:
-            script_part = line.split("调用")[1].split("超时")[0].strip()
-            return (script_part, "", "", "timeout")
-        except:
-            return ("未知脚本", "", "", "timeout")
 
     if "▶" not in line:
         return None
@@ -103,137 +97,61 @@ if query_button:
         st.error("❌ 找不到 run.py 文件")
         st.stop()
 
-    # 状态显示
-    status_container = st.container()
+    # 显示查询状态
+    status_placeholder = st.empty()
+    progress_placeholder = st.empty()
     
-    with status_container:
-        status_text = st.empty()
-        progress_container = st.empty()
-
+    with status_placeholder.container():
+        st.info("🔄 正在查询，请稍候...")
+    
+    with progress_placeholder.container():
+        progress_bar = st.progress(0)
+        progress_text = st.empty()
+    
     # 构建命令
     command = [sys.executable, "run.py", "--date", date_str]
 
     try:
-        # 初始化进度
-        with progress_container.container():
-            progress_bar = st.progress(0)
-            progress_text = st.empty()
-        
-        status_text.info("🔄 启动查询进程...")
-        
         start_time = time.time()
         
-        def read_output(pipe, queue, prefix):
-            """读取输出的线程函数"""
-            try:
-                for line in iter(pipe.readline, ''):
-                    if line.strip():
-                        queue.put((prefix, line.strip()))
-                pipe.close()
-            except:
-                pass
-
-        # 启动进程
-        process = subprocess.Popen(
+        # 更新进度
+        progress_bar.progress(0.1)
+        progress_text.text("正在启动查询进程...")
+        
+        # 执行命令（简化版本，不使用实时监控）
+        result = subprocess.run(
             command,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding="utf-8",
-            universal_newlines=True
+            timeout=300  # 5分钟超时
         )
-
-        # 创建队列和线程
-        output_queue = Queue()
-        stdout_thread = threading.Thread(target=read_output, args=(process.stdout, output_queue, "OUT"))
-        stderr_thread = threading.Thread(target=read_output, args=(process.stderr, output_queue, "ERR"))
-
-        stdout_thread.daemon = True
-        stderr_thread.daemon = True
-        stdout_thread.start()
-        stderr_thread.start()
-
-        # 实时读取输出并更新进度
-        stdout_lines = []
-        stderr_lines = []
-        script_count = 0
-        completed_scripts = 0
-        current_script = ""
-        total_scripts = 15  # 总脚本数
         
-        while process.poll() is None or not output_queue.empty():
-            try:
-                prefix, line = output_queue.get(timeout=1)
-
-                if prefix == "OUT":
-                    stdout_lines.append(line)
-                    
-                    # 检测脚本开始
-                    if "[INFO] 开始处理脚本:" in line:
-                        script_count += 1
-                        current_script = line.split(":")[-1].strip()
-                        progress = (script_count - 1) / total_scripts
-                        progress_bar.progress(progress)
-                        progress_text.text(f"正在处理: {current_script} ({script_count}/{total_scripts})")
-                        status_text.info(f"🔄 处理第 {script_count} 个脚本: {current_script}")
-                    
-                    # 检测脚本完成
-                    elif "▶" in line or "[Error]" in line:
-                        completed_scripts += 1
-                        progress = completed_scripts / total_scripts
-                        progress_bar.progress(min(progress, 0.95))
-                        progress_text.text(f"已完成: {completed_scripts}/{total_scripts} 个脚本")
-                    
-                    # 检测进度信息
-                    elif "[INFO] 进度" in line:
-                        try:
-                            # 从 "[INFO] 进度 X/Y: 脚本名" 中提取信息
-                            progress_part = line.split("进度")[1].split(":")[0].strip()
-                            current, total = progress_part.split("/")
-                            script_count = int(current)
-                            total_scripts = int(total)
-                            current_script = line.split(":")[-1].strip()
-                            
-                            progress = (script_count - 1) / total_scripts
-                            progress_bar.progress(progress)
-                            progress_text.text(f"正在处理: {current_script} ({script_count}/{total_scripts})")
-                            status_text.info(f"🔄 处理第 {script_count} 个脚本: {current_script}")
-                        except:
-                            pass
-
-                elif prefix == "ERR":
-                    stderr_lines.append(line)
-
-            except:
-                # 检查超时（5分钟）
-                if time.time() - start_time > 300:
-                    process.terminate()
-                    status_text.error("❌ 查询超时")
-                    st.error("❌ 查询超时（超过5分钟）")
-                    st.stop()
-                continue
-
-        # 等待进程结束
-        return_code = process.wait()
+        end_time = time.time()
+        execution_time = end_time - start_time
         
         # 完成进度
         progress_bar.progress(1.0)
         progress_text.text("✅ 查询完成")
 
-        end_time = time.time()
-        execution_time = end_time - start_time
-
         # 处理结果
-        if return_code != 0:
-            status_text.error("❌ 查询失败")
+        if result.returncode != 0:
+            status_placeholder.error("❌ 查询失败")
             st.error("❌ 查询失败")
-            if stderr_lines:
-                st.code('\n'.join(stderr_lines))
+            if result.stderr:
+                st.code(result.stderr.strip())
         else:
-            status_text.success(f"✅ 查询完成 (耗时 {execution_time:.1f}秒)")
+            status_placeholder.success(f"✅ 查询完成 (耗时 {execution_time:.1f}秒)")
 
             # 解析输出
             data = []
-            for line in stdout_lines:
+            output_lines = result.stdout.splitlines()
+            
+            for line in output_lines:
+                # 跳过不相关的行
+                if line.startswith("✅") or "已将结果导出到" in line:
+                    continue
+                    
                 parsed = parse_run_output_line(line)
                 if parsed:
                     script, title, link, status = parsed
@@ -247,7 +165,7 @@ if query_button:
             if not data:
                 st.warning("⚠️ 没有解析到任何数据")
                 with st.expander("🔍 原始输出"):
-                    st.code('\n'.join(stdout_lines))
+                    st.code(result.stdout)
             else:
                 df = pd.DataFrame(data)
 
@@ -368,36 +286,18 @@ if query_button:
                 else:
                     st.info("ℹ️ 根据筛选条件，没有找到匹配的记录")
 
+    except subprocess.TimeoutExpired:
+        status_placeholder.error("❌ 查询超时")
+        st.error("❌ 查询超时（超过5分钟）")
     except Exception as e:
-        status_text.error("❌ 查询异常")
+        status_placeholder.error("❌ 查询异常")
         st.error(f"❌ 查询过程中发生错误: {str(e)}")
+    finally:
+        # 清理进度显示
+        progress_placeholder.empty()
 
-# 简化的侧边栏
+# 极简侧边栏
 with st.sidebar:
-    st.markdown("### 📊 数据源状态")
-    
-    # 快速检查文件状态
-    scripts = [
-        "中国外交部.py", "国际海事组织.py", "世界贸易组织.py", "日本外务省.py",
-        "联合国海洋法庭.py", "国际海底管理局.py", "战略与国际研究中心.py",
-        "美国国务院.py", "美国运输部海事管理局.py", "中国海事局.py",
-        "日本海上保安大学校.py", "日本海上保安厅.py", "太平洋岛国论坛.py",
-        "越南外交部.py", "越南外交学院.py"
-    ]
-    
-    existing_count = sum(1 for script in scripts if Path(script).exists())
-    run_py_exists = Path("run.py").exists()
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.metric("run.py", "✅" if run_py_exists else "❌")
-    with col2:
-        st.metric("脚本文件", f"{existing_count}/15")
-    
-    if existing_count < 15:
-        st.warning(f"⚠️ 缺少 {15 - existing_count} 个脚本文件")
-    
-    st.markdown("---")
     st.markdown("### ⚡ 功能特点")
     st.markdown("""
     - 🚀 智能进度显示
