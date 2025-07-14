@@ -84,7 +84,7 @@ def parse_run_output_line(line):
     return (script, title, link, status)
 
 
-# 环境检查
+# 环境检查（隐藏版）
 def check_environment():
     add_log("开始环境检查", "INFO")
 
@@ -117,8 +117,8 @@ def check_environment():
     return True
 
 
-# 运行环境检查
-with st.expander("🔍 环境检查", expanded=True):
+# 运行环境检查（隐藏版 - 默认折叠）
+with st.expander("🔍 环境检查", expanded=False):
     env_placeholder = st.empty()
 
     if check_environment():
@@ -163,8 +163,9 @@ if query_button:
 
 
     def update_logs():
+        # 隐藏版执行日志 - 默认折叠
         with log_placeholder.container():
-            with st.expander("📄 执行日志", expanded=True):
+            with st.expander("📄 执行日志", expanded=False):
                 st.text_area("", "\n".join(st.session_state.debug_logs[-15:]), height=250,
                              key=f"logs_{len(st.session_state.debug_logs)}")
 
@@ -459,37 +460,6 @@ if query_button:
         status_placeholder.error("❌ 查询异常")
         st.error(f"❌ 查询过程中发生错误: {str(e)}")
         update_logs()
-
-# 侧边栏
-with st.sidebar:
-    st.markdown("### 📋 使用指南")
-    st.markdown("""
-    1. 🗓️ 选择查询日期
-    2. 🔍 点击开始查询
-    3. ⏳ 等待执行完成
-    4. 📊 查看结果统计
-    5. 📥 下载数据文件
-    """)
-
-    st.markdown("### 📊 数据源")
-    scripts_info = [
-        "中国外交部", "国际海事组织", "世界贸易组织",
-        "日本外务省", "联合国海洋法庭", "国际海底管理局",
-        "战略与国际研究中心", "美国国务院", "美国运输部海事管理局",
-        "中国海事局", "日本海上保安大学校", "日本海上保安厅",
-        "太平洋岛国论坛", "越南外交部", "越南外交学院"
-    ]
-
-    for script in scripts_info:
-        st.text(f"• {script}")
-
-    st.markdown("### ⚠️ 注意事项")
-    st.markdown("""
-    - 查询时间：1-5分钟
-    - 需要网络连接
-    - 部分源可能暂时不可用
-    - 查看日志了解详情
-    """)
 
 
 
