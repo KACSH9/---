@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from webdriver_manager.chrome import ChromeDriverManager
 from lxml import etree
 from urllib.parse import urljoin
 from datetime import datetime
@@ -17,12 +16,14 @@ chrome_options.add_argument("--no-sandbox")
 # 如需静默运行请取消注释
 # chrome_options.add_argument("--headless")
 
-# 启动浏览器
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+# ✅ 使用本地已安装的 chromedriver 路径
+service = Service("/usr/local/bin/chromedriver")
+driver = webdriver.Chrome(service=service, options=chrome_options)
+
 driver.get(url)
 print("[...] 正在加载页面...")
 
-# 等待页面渲染完成（可调时间）
+# 等待页面渲染完成（可根据网速调整）
 time.sleep(5)
 
 # 获取完整渲染后的 HTML
@@ -54,3 +55,4 @@ for item in items:
         formatted_date = date
 
     print(f"{formatted_date}  {title}  {link}")
+
