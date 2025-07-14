@@ -141,7 +141,7 @@ def main():
                     "status": "no_match"
                 })
             else:
-                print(f"{script} ▶ ✖ 没有找到包含 "{date_str}" 的记录")
+                print(f"{script} ▶ ✖ 没有找到包含 '{date_str}' 的记录")
                 all_rows.append((script, "", ""))
     
     # 如果是 JSON 输出模式，直接输出 JSON
