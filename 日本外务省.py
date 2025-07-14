@@ -8,6 +8,7 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager  # ✅ 新增
 from lxml import etree
 from urllib.parse import urljoin
 from datetime import datetime
@@ -25,8 +26,8 @@ opts.add_argument(
     "Chrome/115.0.5790.170 Safari/537.36"
 )
 
-# ✅ 用你本地安装好的 chromedriver 路径
-service = Service("/usr/local/bin/chromedriver")
+# ✅ 自动下载并使用匹配的 chromedriver
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=opts)
 
 # 2. 获取页面
@@ -65,7 +66,7 @@ for dt_text, title, link in results:
         day   = int(day_str)
         prefix = f"{current_year}-{month:02d}-{day:02d}"
     except Exception:
-        prefix = f"{current_year}-??-??"  # 防止格式异常报错
+        prefix = f"{current_year}-??-??"
     print(f"{prefix} {title} {link}")
 
 
