@@ -1,4 +1,4 @@
-# app.py - 基于好用版本的精简版
+# app.py
 import streamlit as st
 import subprocess
 import sys
@@ -7,8 +7,6 @@ import datetime
 from pathlib import Path
 import os
 import time
-import threading
-from queue import Queue
 
 # 页面配置
 st.set_page_config(
@@ -24,11 +22,13 @@ st.markdown("---")
 if 'debug_logs' not in st.session_state:
     st.session_state.debug_logs = []
 
+
 def add_log(message, level="INFO"):
     timestamp = datetime.datetime.now().strftime("%H:%M:%S")
     log_entry = f"[{timestamp}] {level}: {message}"
     st.session_state.debug_logs.append(log_entry)
     print(log_entry)
+
 
 def parse_run_output_line(line):
     """
@@ -42,6 +42,7 @@ def parse_run_output_line(line):
 
     # 处理错误信息
     if line.startswith("[Error] 调用") and "失败" in line:
+        # 从错误信息中提取脚本名
         try:
             script_part = line.split("调用")[1].split("失败")[0].strip()
             return (script_part, "", "", "error")
@@ -72,6 +73,8 @@ def parse_run_output_line(line):
         return (script, "", "", "no_match")
 
     # 解析标题和链接
+    # 内容格式：标题  链接
+    # 链接通常以http开头
     content_parts = content.split()
 
     if not content_parts:
@@ -98,6 +101,56 @@ def parse_run_output_line(line):
 
     return (script, title, link, status)
 
+
+# 环境检查
+def check_environment():
+    add_log("开始环境检查", "INFO")
+
+    # 检查run.py
+    run_py_path = Path("run.py")
+    if run_py_path.exists():
+        add_log("✅ run.py 文件存在", "SUCCESS")
+    else:
+        add_log("❌ run.py 文件不存在", "ERROR")
+        return False
+
+    # 检查爬虫脚本
+    scripts = [
+        "中国外交部.py", "国际海事组织.py", "世界贸易组织.py", "日本外务省.py",
+        "联合国海洋法庭.py", "国际海底管理局.py", "战略与国际研究中心.py",
+        "美国国务院.py", "美国运输部海事管理局.py", "中国海事局.py",
+        "日本海上保安大学校.py", "日本海上保安厅.py", "太平洋岛国论坛.py",
+        "越南外交部.py", "越南外交学院.py"
+    ]
+
+    existing_count = 0
+    for script in scripts:
+        if Path(script).exists():
+            existing_count += 1
+            add_log(f"✅ {script} 存在", "SUCCESS")
+        else:
+            add_log(f"❌ {script} 不存在", "WARNING")
+
+    add_log(f"脚本检查完成: {existing_count}/{len(scripts)} 个存在", "INFO")
+    return True
+
+
+# 运行环境检查
+with st.expander("🔍 环境检查", expanded=True):
+    env_placeholder = st.empty()
+
+    if check_environment():
+        with env_placeholder.container():
+            st.success("✅ 环境检查通过")
+            if st.session_state.debug_logs:
+                st.text_area("检查日志:", "\n".join(st.session_state.debug_logs[-10:]), height=150)
+    else:
+        with env_placeholder.container():
+            st.error("❌ 环境检查失败")
+            if st.session_state.debug_logs:
+                st.text_area("检查日志:", "\n".join(st.session_state.debug_logs), height=200)
+        st.stop()
+
 # 主界面
 col1, col2 = st.columns([3, 1])
 
@@ -115,11 +168,6 @@ with col2:
 
 # 查询逻辑
 if query_button:
-    # 检查run.py是否存在
-    if not Path("run.py").exists():
-        st.error("❌ 找不到 run.py 文件")
-        st.stop()
-
     # 清空之前的日志
     st.session_state.debug_logs = []
 
@@ -131,13 +179,15 @@ if query_button:
     progress_placeholder = st.empty()
     log_placeholder = st.empty()
 
+
     def update_logs():
         with log_placeholder.container():
-            with st.expander("📄 执行日志", expanded=False):
+            with st.expander("📄 执行日志", expanded=True):
                 st.text_area("", "\n".join(st.session_state.debug_logs[-15:]), height=250,
                              key=f"logs_{len(st.session_state.debug_logs)}")
 
-    # 构建命令
+
+    # 构建命令（绝对不使用--json参数）
     command = [sys.executable, "run.py", "--date", date_str]
     add_log(f"构建命令: {' '.join(command)}", "INFO")
     update_logs()
@@ -151,6 +201,11 @@ if query_button:
 
         start_time = time.time()
 
+        # 使用实时输出监控
+        import threading
+        from queue import Queue
+
+
         def read_output(pipe, queue, prefix):
             try:
                 for line in iter(pipe.readline, ''):
@@ -159,6 +214,7 @@ if query_button:
                 pipe.close()
             except:
                 pass
+
 
         # 启动进程
         process = subprocess.Popen(
@@ -216,12 +272,14 @@ if query_button:
         # 等待进程结束
         return_code = process.wait()
 
+
         # 模拟原来的返回结果
         class ProcessResult:
             def __init__(self, returncode, stdout_lines, stderr_lines):
                 self.returncode = returncode
                 self.stdout = '\n'.join(stdout_lines)
                 self.stderr = '\n'.join(stderr_lines)
+
 
         process = ProcessResult(return_code, stdout_lines, stderr_lines)
 
@@ -323,10 +381,28 @@ if query_button:
                 with col5:
                     st.metric("📝 其他状态", empty)
 
-                # 如果有错误，显示简要信息
+                # 如果有错误，显示错误汇总
                 if error > 0:
                     error_scripts = df[df['status'].isin(['error', 'timeout'])]['script'].tolist()
-                    st.warning(f"⚠️ {error} 个脚本异常: {', '.join(error_scripts[:3])}{'...' if len(error_scripts) > 3 else ''}")
+                    with st.expander(f"⚠️ 发现 {error} 个脚本执行异常", expanded=False):
+                        st.write("**异常脚本列表：**")
+                        for script in error_scripts:
+                            status = df[df['script'] == script]['status'].iloc[0]
+                            if status == 'timeout':
+                                st.write(f"• {script} （⏰ 执行超时）")
+                            else:
+                                st.write(f"• {script} （❌ 脚本错误）")
+
+                        st.write("**常见原因：**")
+                        st.write("- 网络连接超时（60秒）")
+                        st.write("- 目标网站无法访问")
+                        st.write("- 浏览器驱动程序问题")
+                        st.write("- 脚本代码错误")
+
+                        st.write("**解决建议：**")
+                        st.write("- 检查网络连接")
+                        st.write("- 稍后重试")
+                        st.write("- 查看详细执行日志")
 
                 st.markdown("---")
 
@@ -431,3 +507,35 @@ if query_button:
         status_placeholder.error("❌ 查询异常")
         st.error(f"❌ 查询过程中发生错误: {str(e)}")
         update_logs()
+
+# 侧边栏
+with st.sidebar:
+    st.markdown("### 📋 使用指南")
+    st.markdown("""
+    1. 🗓️ 选择查询日期
+    2. 🔍 点击开始查询
+    3. ⏳ 等待执行完成
+    4. 📊 查看结果统计
+    5. 📥 下载数据文件
+    """)
+
+    st.markdown("### 📊 数据源")
+    scripts_info = [
+        "中国外交部", "国际海事组织", "世界贸易组织",
+        "日本外务省", "联合国海洋法庭", "国际海底管理局",
+        "战略与国际研究中心", "美国国务院", "美国运输部海事管理局",
+        "中国海事局", "日本海上保安大学校", "日本海上保安厅",
+        "太平洋岛国论坛", "越南外交部", "越南外交学院"
+    ]
+
+    for script in scripts_info:
+        st.text(f"• {script}")
+
+    st.markdown("### ⚠️ 注意事项")
+    st.markdown("""
+    - 查询时间：1-5分钟
+    - 需要网络连接
+    - 部分源可能暂时不可用
+    - 查看日志了解详情
+    - 单个脚本60秒超时
+    """)
