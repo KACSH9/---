@@ -79,7 +79,7 @@ def main():
                 all_rows.append((script, title, link))
         else:
             # 无匹配时也写入一行，空标题和链接
-            print(f"{script} ▶ ✖ 没有找到包含 '{date_str}' 的记录")
+            print(f"{script} ▶ ✖ 没有找到包含 “{date_str}” 的记录")
             all_rows.append((script, "", ""))
 
     # 写入 CSV
