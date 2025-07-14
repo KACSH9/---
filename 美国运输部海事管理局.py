@@ -1,6 +1,14 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+美国运输部海事管理局新闻爬虫，抓取 newsroom 列表中的新闻项。
+支持 GitHub Actions 自动化运行。
+"""
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager  # ✅ 新增
 from lxml import etree
 from urllib.parse import urljoin
 from datetime import datetime
@@ -13,18 +21,19 @@ base = "https://www.maritime.dot.gov"
 chrome_options = Options()
 chrome_options.add_argument("--disable-gpu")
 chrome_options.add_argument("--no-sandbox")
-# 如需静默运行请取消注释
-# chrome_options.add_argument("--headless")
+chrome_options.add_argument("--headless")  # ✅ 推荐开启 Headless 模式用于 GitHub Actions
+chrome_options.add_argument(
+    "user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.5790.170 Safari/537.36"
+)
 
-# ✅ 使用本地已安装的 chromedriver 路径
-service = Service("/usr/local/bin/chromedriver")
+# ✅ 使用 webdriver-manager 自动下载 chromedriver
+service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-driver.get(url)
 print("[...] 正在加载页面...")
-
-# 等待页面渲染完成（可根据网速调整）
-time.sleep(5)
+driver.get(url)
+time.sleep(5)  # 可根据网络环境适当加长
 
 # 获取完整渲染后的 HTML
 html = driver.page_source
@@ -55,4 +64,5 @@ for item in items:
         formatted_date = date
 
     print(f"{formatted_date}  {title}  {link}")
+
 
