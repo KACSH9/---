@@ -12,22 +12,33 @@ def run_and_get_matches(script_path, date_str):
     运行脚本并返回所有包含 date_str 的原始输出行列表。
     如果脚本运行失败，返回 None。
     """
+    print(f"[INFO] 开始处理脚本: {script_path}")
     try:
         result = subprocess.run(
             [sys.executable, script_path],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             encoding='utf-8',
-            check=True
+            check=True,
+            timeout=60  # 60秒超时
         )
+        print(f"[INFO] {script_path} 执行成功")
+    except subprocess.TimeoutExpired:
+        print(f"[Error] 调用 {script_path} 超时（60秒）", file=sys.stderr)
+        return None
     except subprocess.CalledProcessError as e:
         print(f"[Error] 调用 {script_path} 失败：", e.stderr, file=sys.stderr)
+        return None
+    except Exception as e:
+        print(f"[Error] 调用 {script_path} 发生未知错误：{str(e)}", file=sys.stderr)
         return None
 
     matches = []
     for line in result.stdout.splitlines():
         if date_str in line:
             matches.append(line.strip())
+    
+    print(f"[INFO] {script_path} 找到 {len(matches)} 条匹配记录")
     return matches
 
 def parse_line_to_fields(line, date_str):
