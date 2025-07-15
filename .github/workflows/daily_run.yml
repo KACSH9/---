@@ -2,7 +2,7 @@ name: Daily Script Run
 
 on:
   schedule:
-    - cron: '0 */3 * * *'  # 每 5 分钟执行一次
+    - cron: '0 */6 * * *'  # 每 5 分钟执行一次
   workflow_dispatch:
 
 jobs:
