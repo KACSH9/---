@@ -1,8 +1,13 @@
 script,title,link
 中国外交部.py,习近平夫妇会见柬埔寨国王西哈莫尼和太后莫尼列,https://www.fmprc.gov.cn/zyxw/202508/t20250826_11696088.shtml
 中国外交部.py,习近平会见俄罗斯国家杜马主席沃洛金,https://www.fmprc.gov.cn/zyxw/202508/t20250826_11696050.shtml
+中国外交部.py,赵乐际同瑞士联邦议会联邦院议长卡罗尼会谈,https://www.fmprc.gov.cn/zyxw/202508/t20250826_11696416.shtml
+中国外交部.py,赵乐际会见韩国总统特使朴炳锡,https://www.fmprc.gov.cn/zyxw/202508/t20250826_11696414.shtml
 中国外交部.py,韩正会见韩国总统特使朴炳锡,https://www.fmprc.gov.cn/zyxw/202508/t20250826_11696048.shtml
+中国外交部.py,外交部部长助理兼礼宾司司长洪磊接受伊拉克新任驻华大使递交国书副本,https://www.fmprc.gov.cn/wjbxw_new/202508/t20250826_11696421.shtml
 中国外交部.py,外交部部长助理兼礼宾司司长洪磊接受英国新任驻华大使递交国书副本,https://www.fmprc.gov.cn/wjbxw_new/202508/t20250826_11695793.shtml
+中国外交部.py,赵乐际同瑞士联邦议会联邦院议长卡罗尼会谈,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202508/t20250826_11696416.shtml
+中国外交部.py,赵乐际会见韩国总统特使朴炳锡,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202508/t20250826_11696414.shtml
 中国外交部.py,习近平夫妇会见柬埔寨国王西哈莫尼和太后莫尼列,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202508/t20250826_11696088.shtml
 中国外交部.py,习近平会见俄罗斯国家杜马主席沃洛金,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202508/t20250826_11696050.shtml
 中国外交部.py,韩正会见韩国总统特使朴炳锡,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202508/t20250826_11696048.shtml
@@ -29,12 +34,18 @@ script,title,link
 中国外交部.py,2025年8月26日外交部发言人郭嘉昆主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202508/t20250826_11696202.shtml
 国际海事组织.py,,
 世界贸易组织.py,,
+日本外务省.py,Regarding Press Release issued by the Office of the President of the Federal Republic of Nigeria Concerning “JICA Africa Hometown”,https://www.mofa.go.jp/press/release/pressite_000001_01602.html
 日本外务省.py,Japan-U.S.-ROK Public-Private Event to Counter North Korean IT Worker Threats,https://www.mofa.go.jp/press/release/pressite_000001_01601.html
 日本外务省.py,"A Statement by the Honourable Anita Anand, Minister of Foreign Affairs of Canada, in her Capacity as Chair-G7 Foreign Ministers' Virtual Meeting on the Independence Day of Ukraine",https://www.mofa.go.jp/press/release/pressite_000001_01600.html
 联合国海洋法庭.py,,
 国际海底管理局.py,,
 战略与国际研究中心.py,The Future of Naval Aviation: A Conversation with VADM Cheever,https://www.csis.org/events/future-naval-aviation-conversation-vadm-cheever
+战略与国际研究中心.py,The Risks of U.S. Deep-Sea Mining,https://www.csis.org/analysis/risks-us-deep-sea-mining
+战略与国际研究中心.py,The Russia Oil Surcharge: Anticipating the Benefits and Challenges,https://www.csis.org/analysis/russia-oil-surcharge-anticipating-benefits-and-challenges
 战略与国际研究中心.py,The Future of Naval Aviation: A Conversation with VADM Cheever,https://www.csis.org/events/future-naval-aviation-conversation-vadm-cheever
+战略与国际研究中心.py,The Russia Oil Surcharge: Anticipating the Benefits and Challenges,https://www.csis.org/analysis/russia-oil-surcharge-anticipating-benefits-and-challenges
+战略与国际研究中心.py,The Risks of U.S. Deep-Sea Mining,https://www.csis.org/analysis/risks-us-deep-sea-mining
+战略与国际研究中心.py,The Strategic Future of Subsea Cables: Japan Case Study,https://www.csis.org/analysis/strategic-future-subsea-cables-japan-case-study
 美国国务院.py,,
 美国运输部海事管理局.py,,
 中国海事局.py,,
@@ -54,6 +65,8 @@ script,title,link
 中国国际电视台官微.py,慢直播#山河慢巡礼#云赏江西南昌滕王阁,https://video.weibo.com/show?fid=1042211%3A5203856840655002
 中国国际电视台官微.py,直击幕后#探访阅兵集训点#,https://video.weibo.com/show?fid=1034%3A5203842682519668
 中国国际电视台官微.py,慢直播#山河慢巡礼#静赏杭州复兴大桥的独特魅力,https://video.weibo.com/show?fid=1042211%3A5203840044302364
+南海之声.py,死亡之墙#印尼#夜市中惊险的古老表演,https://weibo.cn/sinaurl?u=https%3A%2F%2Fvscs.cri.cn%2F20250801%2Fcd11ab40-db70-9b49-230d-55f2a91f9a74.html
+南海之声.py,#博鳌亚洲论坛亚太区域合作圆桌会议在吉隆坡开幕#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1
 南海之声.py,#台风剑鱼过境老挝#中老铁路暂停运营,https://video.weibo.com/show?fid=1034%3A5203978639048858
 南海之声.py,#外交部回应日本的抗战胜利纪念负面言论#,https://video.weibo.com/show?fid=1034%3A5203921638457464
 南海之声.py,#国产挖泥船上新#分钟吸满个游泳池还能一键疏浚,https://video.weibo.com/show?fid=1034%3A5203953550557205
@@ -61,4 +74,3 @@ script,title,link
 南海之声.py,#特朗普想今年与金正恩会面#,https://video.weibo.com/show?fid=1034%3A5203790815756304
 南海之声.py,转发期待#看中国阅兵一整个舒适了#,https://video.weibo.com/show?fid=1034%3A5203815654424594
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
