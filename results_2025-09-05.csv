@@ -2,6 +2,7 @@ script,title,link
 中国外交部.py,习近平向2025世界智能产业博览会致贺信,https://www.fmprc.gov.cn/zyxw/202509/t20250905_11702933.shtml
 中国外交部.py,赵乐际同东帝汶国民议会议长费尔南达会谈,https://www.fmprc.gov.cn/zyxw/202509/t20250905_11703221.shtml
 中国外交部.py,韩正会见东帝汶国民议会议长费尔南达,https://www.fmprc.gov.cn/zyxw/202509/t20250905_11703196.shtml
+中国外交部.py,外交部部长助理刘彬赴阿富汗驻华使馆吊唁阿富汗地震遇难者,https://www.fmprc.gov.cn/wjbxw_new/202509/t20250905_11703349.shtml
 中国外交部.py,中古建交65周年档案文献展在京举办,https://www.fmprc.gov.cn/wjbxw_new/202509/t20250905_11702867.shtml
 中国外交部.py,赵乐际同东帝汶国民议会议长费尔南达会谈,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250905_11703221.shtml
 中国外交部.py,韩正会见东帝汶国民议会议长费尔南达,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250905_11703196.shtml
@@ -29,13 +30,15 @@ script,title,link
 中国外交部.py,外交部发言人就阿努廷当选泰国新任总理答记者问,https://www.fmprc.gov.cn/fyrbt_673021/dhdw_673027/202509/t20250905_11703228.shtml
 国际海事组织.py,,
 世界贸易组织.py,,
+日本外务省.py,Japan-Australia Foreign Ministers’ Working Dinner,https://www.mofa.go.jp/press/release/pressite_000001_01634.html
+日本外务省.py,The 12th Japan-Australia 2+2 Foreign and Defence Ministerial Consultations (“2+2”),https://www.mofa.go.jp/press/release/pressite_000001_01633.html
 日本外务省.py,Signing of the Japan-Australia Memorandum on Cooperation of Assisting Japanese and Australian Nationals Overseas,https://www.mofa.go.jp/press/release/pressite_000001_01630.html
 日本外务省.py,"Visit to Japan by Mr. Alessandro Giuli, Minister of Culture of the Italian Republic",https://www.mofa.go.jp/press/release/pressite_000001_01629.html
 日本外务省.py,"Video Message from Foreign Minister IWAYA for the “OSAKA JAPAN SDGs Forum,” an SDGs symposium held at Expo 2025 Osaka, Kansai, Japan",https://www.mofa.go.jp/press/release/pressite_000001_01628.html
 日本外务省.py,President Petro of the Republic of Colombia visits to the Osaka-Kansai Expo,https://www.mofa.go.jp/press/release/pressite_000001_01627.html
 联合国海洋法庭.py,,
 国际海底管理局.py,,
-战略与国际研究中心.py,,
+战略与国际研究中心.py,State of Play: Are U.S. tariffs bringing India and China together?,https://www.csis.org/podcasts/pekingology/state-play-are-us-tariffs-bringing-india-and-china-together
 美国国务院.py,Secretary Rubio's Recent Travel,https://www.state.gov/secretary-travel/travel-to-mexico-and-ecuador-september-2-4-2025/?utm_source=homepage&utm_medium=newsbar&utm_campaign=secretary_travel
 美国运输部海事管理局.py,,
 中国海事局.py,,
@@ -44,6 +47,8 @@ script,title,link
 太平洋岛国论坛.py,,
 越南外交部.py,,
 越南外交学院.py,,
+中国国际电视台官微.py,斯洛伐克总理盛赞中国纪念抗战胜利阅兵式,https://video.weibo.com/show?fid=1034%3A5207591765344282
+中国国际电视台官微.py,跨越时空的共鸣：中俄青少年在长城与抗战纪念馆唱响经典,https://video.weibo.com/show?fid=1034%3A5207560190623800
 中国国际电视台官微.py,大熊猫在成都等你,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E9%87%91%E7%86%8A%E7%8C%AB%E5%A5%962025%23&extparam=%23%E9%87%91%E7%86%8A%E7%8C%AB%E5%A5%962025%23
 中国国际电视台官微.py,9岁因日军毒气战失明，14岁被日军掳入“慰安所”，体内遗留钙化“死亡胚胎”数十年,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%B3%E5%B0%86%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9%E4%BB%AC%23&extparam=%23%E5%8D%B3%E5%B0%86%E6%B6%88%E5%A4%B1%E7%9A%84%E5%A5%B9%E4%BB%AC%23
 中国国际电视台官微.py,共读|见证历史的循环,https://video.weibo.com/show?fid=1034%3A5207558131220502
@@ -63,4 +68,3 @@ script,title,link
 南海之声.py,#海外华侨华人为祖国强盛而自豪#,https://video.weibo.com/show?fid=1034%3A5207445388328991
 南海之声.py,#南海海域军事训练#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E8%88%AA%E8%A1%8C%E8%AD%A6%E5%91%8A%23&isnewpage=1
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,特朗普：支持航运减排，就加关税！,https://www.cnss.com.cn/html/currentevents/20250905/357819.html
