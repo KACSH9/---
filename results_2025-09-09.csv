@@ -1,9 +1,11 @@
 script,title,link
 中国外交部.py,习近平会见葡萄牙总理蒙特内格罗,https://www.fmprc.gov.cn/zyxw/202509/t20250909_11705030.shtml
 中国外交部.py,习近平就朝鲜国庆77周年向朝鲜最高领导人金正恩致贺电,https://www.fmprc.gov.cn/zyxw/202509/t20250909_11705026.shtml
+中国外交部.py,李强同葡萄牙总理蒙特内格罗会谈,https://www.fmprc.gov.cn/zyxw/202509/t20250909_11705379.shtml
 中国外交部.py,赵乐际会见葡萄牙总理蒙特内格罗,https://www.fmprc.gov.cn/zyxw/202509/t20250909_11705352.shtml
 中国外交部.py,韩正出席2025全球能源互联网大会并致辞,https://www.fmprc.gov.cn/zyxw/202509/t20250909_11705023.shtml
 中国外交部.py,外交部党委召开会议对外交战线开展深入贯彻中央八项规定精神学习教育进行总结,https://www.fmprc.gov.cn/wjbxw_new/202509/t20250909_11705173.shtml
+中国外交部.py,李强同葡萄牙总理蒙特内格罗会谈,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250909_11705379.shtml
 中国外交部.py,赵乐际会见葡萄牙总理蒙特内格罗,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250909_11705352.shtml
 中国外交部.py,习近平会见葡萄牙总理蒙特内格罗,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250909_11705030.shtml
 中国外交部.py,习近平就朝鲜国庆77周年向朝鲜最高领导人金正恩致贺电,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250909_11705026.shtml
@@ -30,12 +32,14 @@ script,title,link
 中国外交部.py,2025年9月9日外交部发言人林剑主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202509/t20250909_11705269.shtml
 国际海事组织.py,,
 世界贸易组织.py,,
+日本外务省.py,Parliamentary Vice-Minister MATSUMOTO’s attendance at the Japan Launch Event for the Human Development Report 2025,https://www.mofa.go.jp/press/release/pressite_000001_01643.html
 日本外务省.py,The Forth Meeting of the Quantum Development Group,https://www.mofa.go.jp/press/release/pressite_000001_01642.html
 日本外务省.py,Japan-U.K. Foreign Ministers’ Telephone Meeting,https://www.mofa.go.jp/press/release/pressite_000001_01640.html
 日本外务省.py,The First Strategic Dialogue between the Foreign Ministers of Japan and Bahrain,https://www.mofa.go.jp/press/release/pressite_000001_01639.html
 联合国海洋法庭.py,,
 国际海底管理局.py,,
-战略与国际研究中心.py,,
+战略与国际研究中心.py,"Agency in an Age of Uncertainty: Megatrends, Foresight, and Navigating New Frontiers",https://www.csis.org/analysis/agency-age-uncertainty-megatrends-foresight-and-navigating-new-frontiers
+战略与国际研究中心.py,"Agency in an Age of Uncertainty: Megatrends, Foresight, and Navigating New Frontiers",https://www.csis.org/analysis/agency-age-uncertainty-megatrends-foresight-and-navigating-new-frontiers
 美国国务院.py,,
 美国运输部海事管理局.py,,
 中国海事局.py,,
@@ -53,10 +57,10 @@ script,title,link
 中国国际电视台官微.py,比利时前首相：全球治理倡议凸显中国担当,https://video.weibo.com/show?fid=1034%3A5208925967417434
 中国国际电视台官微.py,慢直播#石榴花开天山下#邂逅新疆风帆溪的静谧之美,https://video.weibo.com/show?fid=1042211%3A5208921426821168
 南海之声.py,当太空中划过南海之声电波,https://video.weibo.com/show?fid=1034%3A5208999963328556
+南海之声.py,#柬埔寨首都新机场正式通航#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1
 南海之声.py,巴厘岛天空，放飞的不只是风筝,https://weibo.cn/sinaurl?u=https%3A%2F%2Fvscs.cri.cn%2F20250804%2F6f08ddd6-2ccb-4191-be5a-e62380e511fa.html
 南海之声.py,#泰国前总理他信被判有罪#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1
 南海之声.py,#柬埔寨输华水果已达五种#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1
 南海之声.py,独家视频习近平各国发展离不开开放合作的国际环境#谁也不能退回到自我封闭的孤岛#,https://video.weibo.com/show?fid=1034%3A5208741833277484
 南海之声.py,习近平#多边主义是人心所向大势所趋#是世界和平与发展的重要依靠,https://video.weibo.com/show?fid=1034%3A5208738488057900
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,西班牙对以色列出手！实施航运、航空制裁！,https://www.cnss.com.cn/html/currentevents/20250909/357836.html
