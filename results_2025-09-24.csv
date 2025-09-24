@@ -4,9 +4,11 @@ script,title,link
 中国外交部.py,李强会见奥地利总理施托克尔,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11714596.shtml
 中国外交部.py,李强会见加拿大总理卡尼,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11714594.shtml
 中国外交部.py,李强出席全球发展倡议高级别会议,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11714592.shtml
+中国外交部.py,外交部部长助理刘彬出席马来西亚国庆招待会,https://www.fmprc.gov.cn/wjbxw_new/202509/t20250924_11716213.shtml
 中国外交部.py,李强会见奥地利总理施托克尔,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250924_11714596.shtml
 中国外交部.py,李强会见加拿大总理卡尼,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250924_11714594.shtml
 中国外交部.py,李强出席全球发展倡议高级别会议,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250924_11714592.shtml
+中国外交部.py,外交部亚洲司司长刘劲松会见阿富汗驻华大使卡里米,https://www.fmprc.gov.cn/wjdt_674879/sjxw_674887/202509/t20250924_11716140.shtml
 中国外交部.py,中国政府非洲事务特别代表刘豫锡会见乌干达外交部常秘巴吉瑞,https://www.fmprc.gov.cn/wjdt_674879/sjxw_674887/202509/t20250924_11715938.shtml
 中国外交部.py,驻名古屋总领事杨娴在富山大学发表演讲,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202509/t20250924_11715708.shtml
 中国外交部.py,驻名古屋总领事杨娴访问富山县富山市、黑部市,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202509/t20250924_11715704.shtml
@@ -28,11 +30,18 @@ script,title,link
 中国外交部.py,李强在全球发展倡议高级别会议上的讲话（全文）,https://www.mfa.gov.cn/web/ziliao_674904/zyjh_674906/202509/t20250924_11715681.shtml
 中国外交部.py,“人工智能+”国际合作倡议,https://www.mfa.gov.cn/web/ziliao_674904/1179_674909/202509/t20250924_11715834.shtml
 国际海事组织.py,,
+世界贸易组织.py,John H. Jackson Moot Court Competition kicks off with webinar support on offer,https://www.wto.org/english/news_e/news25_e/disp_24sep25_e.htm
 世界贸易组织.py,Statement by DG Okonjo-Iweala,https://www.wto.org/english/news_e/news25_e/dgno_24sep25-b_e.htm
 世界贸易组织.py,WTO DG welcomes China&rsquo;s relinquishment of special and differential treatment at WTO,https://www.wto.org/english/news_e/news25_e/dgno_24sep25_e.htm
 日本外务省.py,,
 联合国海洋法庭.py,The M/T “Heroic Idun” (No. 2) Case (Marshall Islands/Equatorial Guinea) https://www.itlos.org/fileadmin/itlos/documents/press_releases_english/374_en.pdf https://www.itlos.org/en/main/cases/list-of-cases/the-m/t-heroic-idun-no-2-case-marshall-islands/equatorial-guinea/,https://www.itlos.org/en/main/cases/schedule-of-hearings/
+国际海底管理局.py,,
 战略与国际研究中心.py,MTCR Reform: What's a Missile?,https://www.csis.org/events/mtcr-reform-whats-missile
+战略与国际研究中心.py,Doha Strikes Highlight Clashing Visions of the Middle East,https://www.csis.org/analysis/doha-strikes-highlight-clashing-visions-middle-east
+战略与国际研究中心.py,The Strategic Future of Subsea Cables: Singapore Case Study,https://www.csis.org/analysis/strategic-future-subsea-cables-singapore-case-study
+战略与国际研究中心.py,Innovation and Involution: A Conversation with CSIS’s Scott Kennedy,https://www.csis.org/podcasts/china-field-notes-scott-kennedy/innovation-and-involution-conversation-csiss-scott-kennedy
+战略与国际研究中心.py,Back to basics: Africa’s bid for two permanent UNSC seats (with Amb. Martin Kimani),https://www.csis.org/podcasts/youth-bloom/back-basics-africas-bid-two-permanent-unsc-seats-amb-martin-kimani
+战略与国际研究中心.py,Is China Done with Nvidia’s AI Chips?,https://www.csis.org/podcasts/ai-policy-podcast/china-done-nvidias-ai-chips
 美国国务院.py,Secretary Rubio Travels to the United Nations in New York City,https://www.state.gov/secretary-travel/travel-to-the-united-nations-for-the-80th-un-general-assembly-high-level-week-september-22-24-2025/?utm_source=homepage&utm_medium=news_bar&utm_campaign=unga80
 美国运输部海事管理局.py,,
 中国海事局.py,,
@@ -40,11 +49,13 @@ script,title,link
 日本海上保安厅.py,海上保安学校卒業式の実施について,https://www.kaiho.mlit.go.jp/info/kouhou/post-1243.html
 太平洋岛国论坛.py,,
 越南外交部.py,Chủ tịch nước Lương Cường tiếp các nghị sỹ Hoa Kỳ,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-nuoc-luong-cuong-tiep-cac-nghi-sy-hoa-ky-57581-138.html
+越南外交部.py,"Phát triển ngành Ngoại giao toàn diện, hiện đại, chuyên nghiệp trong kỷ nguyên vươn mình",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/phat-trien-nganh-ngoai-giao-toan-dien-hien-dai-chuyen-nghiep-trong-ky-nguyen-vuon-minh-57595-139.html
 越南外交部.py,"Đoàn đại biểu Đảng Cộng sản Việt Nam thăm, làm việc tại New Zealand",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/doan-dai-bieu-dang-cong-san-viet-nam-tham-lam-viec-tai-new-zealand-57593-139.html
 越南外交部.py,Phó Thủ tướng Chính phủ Bùi Thanh Sơn tham dự và phát biểu tại Phiên họp cấp cao về Sáng kiến...,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-tham-du-va-phat-bieu-tai-phien-hop-cap-cao-ve-sang-kien-phat-trien-toan-cau-gdi--57592-139.html
 越南外交部.py,Phó Thủ tướng Chính phủ Bùi Thanh Sơn tiếp lãnh đạo một số tập đoàn của Mỹ,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-tiep-lanh-dao-mot-so-tap-doan-cua-my-57589-139.html
 越南外交部.py,"Phó Thủ tướng Chính phủ Bùi Thanh Sơn gặp Phó Thủ tướng, Bộ trưởng Ngoại giao các Tiểu vương quốc...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-gap-pho-thu-tuong-bo-truong-ngoai-giao-cac-tieu-vuong-quoc-a-rap-thong-nhat-57588-139.html
 越南外交学院.py,Hoàng Mai Linh – Thủ khoa Học viện Ngoại giao với GPA 3.79/4.0 cùng 5 kỳ liên tiếp giành học bổng,https://www.dav.edu.vn/hoang-mai-linh-thu-khoa-hoc-vien-ngoai-giao-voi-gpa-3-79-4-0-cung-5-ky-lien-tiep-gianh-hoc-bong/
+中国国际电视台官微.py,青春新疆：多民族团队如何创新助力百年矿业,https://video.weibo.com/show?fid=1034%3A5214516682883140
 中国国际电视台官微.py,观看年是#新疆维吾尔自治区成立七十周年#昔日的边陲之地，如今已焕新为活力涌动的现代化热土，群众们在此安居乐业共享繁荣新疆走过了怎样的发展历程历经哪些挑战与突破#新疆风华载#,https://video.weibo.com/show?fid=1042211%3A5214496277594190
 中国国际电视台官微.py,专访联合国难民署驻华代表：全球人道危机加剧，中国支持受到欢迎,https://video.weibo.com/show?fid=1034%3A5214410378248194
 中国国际电视台官微.py,先声夺人｜《2030议程》五年倒计时 可持续发展如何提速？,https://video.weibo.com/show?fid=1034%3A5214404116152335
@@ -62,4 +73,3 @@ script,title,link
 南海之声.py,#台风致台湾花莲死#,https://video.weibo.com/show?fid=1034%3A5214320553033775
 南海之声.py,#第号台风博罗依生成#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8F%B0%E9%A3%8E%23&extparam=%23%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8F%B0%E9%A3%8E%23
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
