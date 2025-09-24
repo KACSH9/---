@@ -1,5 +1,12 @@
 script,title,link
-中国外交部.py,,
+中国外交部.py,李强在全球发展倡议高级别会议上的讲话（全文）,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11715681.shtml
+中国外交部.py,李强会见奥地利总理施托克尔,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11714596.shtml
+中国外交部.py,李强会见加拿大总理卡尼,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11714594.shtml
+中国外交部.py,李强出席全球发展倡议高级别会议,https://www.fmprc.gov.cn/zyxw/202509/t20250924_11714592.shtml
+中国外交部.py,李强会见奥地利总理施托克尔,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250924_11714596.shtml
+中国外交部.py,李强会见加拿大总理卡尼,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250924_11714594.shtml
+中国外交部.py,李强出席全球发展倡议高级别会议,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202509/t20250924_11714592.shtml
+中国外交部.py,李强在全球发展倡议高级别会议上的讲话（全文）,https://www.mfa.gov.cn/web/ziliao_674904/zyjh_674906/202509/t20250924_11715681.shtml
 国际海事组织.py,,
 世界贸易组织.py,,
 日本外务省.py,,
@@ -10,10 +17,20 @@ script,title,link
 美国运输部海事管理局.py,,
 中国海事局.py,,
 日本海上保安大学校.py,,
-日本海上保安厅.py,,
+日本海上保安厅.py,海上保安学校卒業式の実施について,https://www.kaiho.mlit.go.jp/info/kouhou/post-1243.html
 太平洋岛国论坛.py,,
-越南外交部.py,,
-越南外交学院.py,,
-中国国际电视台官微.py,,
+越南外交部.py,Phó Thủ tướng Chính phủ Bùi Thanh Sơn tiếp lãnh đạo một số tập đoàn của Mỹ,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-tiep-lanh-dao-mot-so-tap-doan-cua-my-57589-139.html
+越南外交部.py,"Phó Thủ tướng Chính phủ Bùi Thanh Sơn gặp Phó Thủ tướng, Bộ trưởng Ngoại giao các Tiểu vương quốc...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-gap-pho-thu-tuong-bo-truong-ngoai-giao-cac-tieu-vuong-quoc-a-rap-thong-nhat-57588-139.html
+越南外交学院.py,Hoàng Mai Linh – Thủ khoa Học viện Ngoại giao với GPA 3.79/4.0 cùng 5 kỳ liên tiếp giành học bổng,https://www.dav.edu.vn/hoang-mai-linh-thu-khoa-hoc-vien-ngoai-giao-voi-gpa-3-79-4-0-cung-5-ky-lien-tiep-gianh-hoc-bong/
+中国国际电视台官微.py,#陆游记#棉花的故事,https://video.weibo.com/show?fid=1034%3A5214198725279755
+中国国际电视台官微.py,慢直播沉醉在喀纳斯映山湖，感受新疆山水一体的美景#石榴花开天山下#,https://video.weibo.com/show?fid=1042211%3A5214384679747604
+中国国际电视台官微.py,#第十二届丝绸之路国际电影节#慢直播邂逅榕城福州的江海之韵,https://video.weibo.com/show?fid=1042211%3A5214364433842218
+中国国际电视台官微.py,,中国农民丰收节全国主场活动在山东招远举办
+中国国际电视台官微.py,慢直播#现场直击#桦加沙台风最新情况,https://weibo.com/l/wblive/p/show/1022:2321325214331763032155
+中国国际电视台官微.py,#英国记者点赞新疆棉的高科技#,https://video.weibo.com/show?fid=1034%3A5214330254458924
+南海之声.py,#台风中海水冲入酒店#,https://video.weibo.com/show?fid=1034%3A5214351272116298
+南海之声.py,双红警报持续发布台风#桦加沙#登陆在即,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%A1%A6%E5%8A%A0%E6%B2%99%23&extparam=%23%E6%A1%A6%E5%8A%A0%E6%B2%99%23
+南海之声.py,#台风致台湾花莲死#,https://video.weibo.com/show?fid=1034%3A5214320553033775
+南海之声.py,#第号台风博罗依生成#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8F%B0%E9%A3%8E%23&extparam=%23%E5%8F%88%E4%B8%80%E4%B8%AA%E5%8F%B0%E9%A3%8E%23
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
 海事服务网.py,,
