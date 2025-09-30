@@ -29,8 +29,9 @@ script,title,link
 中国外交部.py,驻佛罗伦萨总领事尹琦在庆祝中华人民共和国成立76周年暨中意建交55周年音乐会上的致辞,https://www.fmprc.gov.cn/zwbd_673032/wjzs/202509/t20250930_11720583.shtml
 中国外交部.py,2025年9月30日外交部发言人郭嘉昆主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202509/t20250930_11721739.shtml
 中国外交部.py,​习近平：在庆祝中华人民共和国成立76周年招待会上的讲话,https://www.mfa.gov.cn/web/ziliao_674904/zyjh_674906/202509/t20250930_11721857.shtml
-国际海事组织.py,,
-世界贸易组织.py,,
+国际海事组织.py,国际海事组织（IMO）加大对海员进行替代燃料和新技术培训的力度,https://www.imo.org/zh/mediacentre/pages/WhatsNew-2336.aspx
+世界贸易组织.py,"DG Okonjo-Iweala welcomes calls of support for WTO, urges meaningful MC14 outcomes",https://www.wto.org/english/news_e/news25_e/tnc_30sep25_e.htm
+世界贸易组织.py,"Bahrain contributes USD 200,000 to WTO-ITC Fund to support women exporters",https://www.wto.org/english/news_e/pres25_e/pr985_e.htm
 日本外务省.py,"Courtesy Call on Foreign Minister IWAYA by H.E. Raja Dato’ Nushirwan bin Zainal Abidin, Director General of National Security Council of Malaysia",https://www.mofa.go.jp/press/release/pressite_000001_01702.html
 日本外务省.py,Monitoring and surveillance activities by Canada against illicit maritime activities including ship-to-ship transfers,https://www.mofa.go.jp/press/release/pressite_000001_01701.html
 日本外务省.py,Japan-Antigua and Barbuda Foreign Ministers’ Meeting,https://www.mofa.go.jp/press/release/pressite_000001_01700.html
@@ -38,7 +39,11 @@ script,title,link
 日本外务省.py,Attendance by Parliamentary Vice-Minister for Foreign Affairs MATSUMOTO Hisashi at the Opening Ceremony of Global Festa JAPAN 2025,https://www.mofa.go.jp/press/release/pressite_000001_01697.html
 日本外务省.py,The Japan-Netherlands Peace Exchange Program 2025,https://www.mofa.go.jp/press/release/pressite_000001_01696.html
 联合国海洋法庭.py,,
+战略与国际研究中心.py,What a Government Shutdown Would Mean for Defense Funding in FY 2026,https://www.csis.org/analysis/what-government-shutdown-would-mean-defense-funding-fy-2026
+战略与国际研究中心.py,The Future of the ROK-U.S. Alliance: Adapting to a Changing World,https://www.csis.org/analysis/future-rok-us-alliance-adapting-changing-world
+战略与国际研究中心.py,"CRINK Security Ties: Growing Cooperation, Anchored by China and Russia",https://www.csis.org/analysis/crink-security-ties-growing-cooperation-anchored-china-and-russia
 战略与国际研究中心.py,Growing the Midwest Quantum Ecosystem,https://www.csis.org/events/growing-midwest-quantum-ecosystem
+战略与国际研究中心.py,“Left-Wing Terrorism and Political Violence in the United States: What the Data Tells Us”: Audio Brief with Riley McCabe,https://www.csis.org/podcasts/audio-briefs/left-wing-terrorism-and-political-violence-united-states-what-data-tells-us
 美国国务院.py,,
 美国运输部海事管理局.py,,
 中国海事局.py,,
@@ -47,7 +52,8 @@ script,title,link
 太平洋岛国论坛.py,,
 越南外交部.py,"PHÓ CHỦ TỊCH QUỐC HỘI TRẦN QUANG PHƯƠNG HỘI KIẾN CHỦ TỊCH THƯỢNG VIỆN NHẬT BẢN, HỘI ĐÀM VỚI PHÓ...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-chu-tich-quoc-hoi-tran-quang-phuong-hoi-kien-chu-tich-thuong-vien-nhat-ban-hoi-dam-voi-pho-chu-tich-ha-vien-nhat-ban-gap-lien-minh-nghi-si-huu-nghi-nhat-viet-57635-139.html
 越南外交学院.py,,
-中国国际电视台官微.py,观看#青春派#历史无界，和平无疆,https://weibo.com/l/wblive/p/show/1022:2321325216653335199823
+中国国际电视台官微.py,共同铭记 缅怀英烈,https://video.weibo.com/show?fid=1034%3A5216701633986562
+中国国际电视台官微.py,观看#青春派#历史无界，和平无疆,https://video.weibo.com/show?fid=1042211%3A5216672659996758
 中国国际电视台官微.py,青春之歌：跨越六十余年的青春密码,https://video.weibo.com/show?fid=1034%3A5216629106343943
 中国国际电视台官微.py,在古老的土地上，看见未来,https://video.weibo.com/show?fid=1034%3A5216612329127998
 中国国际电视台官微.py,2025年了，这片山头上仍埋着无数抗战遗留子弹,https://video.weibo.com/show?fid=1034%3A5216565692661817
@@ -63,4 +69,3 @@ script,title,link
 南海之声.py,#美政府资金月日将耗尽#,https://video.weibo.com/show?fid=1034%3A5216487066238983
 南海之声.py,今日，一起转发#向烈士致敬#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%90%91%E7%83%88%E5%A3%AB%E8%87%B4%E6%95%AC%23&isnewpage=1
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
