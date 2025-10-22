@@ -1,4 +1,5 @@
 script,title,link
+中国外交部.py,外交部部长助理兼礼宾司司长洪磊接受乌拉圭新任驻华大使递交国书副本,https://www.fmprc.gov.cn/wjbxw_new/202510/t20251022_11738720.shtml
 中国外交部.py,外交部部长助理蔡伟会见《不扩散核武器条约》第十一次审议大会候任主席、越南常驻联合国代表杜雄越大使,https://www.fmprc.gov.cn/wjbxw_new/202510/t20251022_11738634.shtml
 中国外交部.py,驻巴拿马大使徐学渊会见牛口省钱吉诺拉市市长桑托斯,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202510/t20251022_11737988.shtml
 中国外交部.py,驻格林纳达大使杨舒在格媒体发表署名文章《联大第2758号决议不容挑战：一个中国原则不容置疑》,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202510/t20251022_11737986.shtml
@@ -11,8 +12,10 @@ script,title,link
 中国外交部.py,驻巴哈马大使严家蓉出席巴获奖纪录片首映式,https://www.fmprc.gov.cn/zwbd_673032/gzhd_673042/202510/t20251022_11738007.shtml
 中国外交部.py,驻格林纳达大使杨舒在格媒体发表署名文章《联大第2758号决议不容挑战：一个中国原则不容置疑》,https://www.fmprc.gov.cn/zwbd_673032/wjzs/202510/t20251022_11737986.shtml
 中国外交部.py,2025年10月22日外交部发言人郭嘉昆主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202510/t20251022_11738029.shtml
-国际海事组织.py,,
+国际海事组织.py,国际社会保障协会会议聚焦海员福利,https://www.imo.org/zh/mediacentre/pages/WhatsNew-2353.aspx
+国际海事组织.py,新出版物支持针对航运水下噪声采取全球行动,https://www.imo.org/zh/mediacentre/pages/WhatsNew-2352.aspx
 世界贸易组织.py,,
+日本外务省.py,Release of the Second Report of the Multilateral Sanctions Monitoring Team (MSMT),https://www.mofa.go.jp/press/release/pressite_000001_01758.html
 日本外务省.py,Reception hosted by the Minister of Foreign Affairs on the Occasion of the Ukraine Mine Action Conference (UMAC 2025),https://www.mofa.go.jp/press/release/pressite_000001_01757.html
 日本外务省.py,"Meeting between Foreign Minister MOTEGI and Minister of Economy, Environment, and Agriculture of Ukraine Sovolev",https://www.mofa.go.jp/press/release/pressite_000001_01756.html
 日本外务省.py,Signing and Exchange of Notes concerning support for geospatial data platform for the enhancement of national disaster resilience to the Lao People's Democratic Republic (Grant aid “the Economic and Social Development Programme”),https://www.mofa.go.jp/press/release/pressite_000001_01755.html
@@ -27,6 +30,7 @@ script,title,link
 战略与国际研究中心.py,bp Energy Outlook 2025,https://www.csis.org/events/bp-energy-outlook-2025
 战略与国际研究中心.py,What's Behind the Copper Hype?,https://www.csis.org/events/whats-behind-copper-hype
 战略与国际研究中心.py,Understanding the Future of North American Trade and Security,https://www.csis.org/events/understanding-future-north-american-trade-and-security
+战略与国际研究中心.py,"Crossing Worlds: Han Shen Lin on Leadership, Finance, and U.S.-China Relations",https://www.csis.org/podcasts/china-field-notes-scott-kennedy/crossing-worlds-han-shen-lin-leadership-finance-and-us
 战略与国际研究中心.py,What's Behind the Copper Hype?,https://www.csis.org/events/whats-behind-copper-hype
 战略与国际研究中心.py,Understanding the Future of North American Trade and Security,https://www.csis.org/events/understanding-future-north-american-trade-and-security
 美国国务院.py,,
@@ -37,6 +41,7 @@ script,title,link
 太平洋岛国论坛.py,,
 越南外交部.py,,
 越南外交学院.py,,
+中国国际电视台官微.py,从伊兹尼克蓝到景德镇青花，两座千年瓷都的对话,https://video.weibo.com/show?fid=1034%3A5224648372322340
 中国国际电视台官微.py,从青海到非洲：联合国三位驻华代表眼中的“中国加速力”,https://video.weibo.com/show?fid=1034%3A5224240866328668
 中国国际电视台官微.py,#中国新动力#新疆制造的机器人，有啥不一样,https://video.weibo.com/show?fid=1034%3A5224560618831917
 中国国际电视台官微.py,直播：探访塔里木河深处“胡杨秘境” 解锁胡杨性别密码,https://video.weibo.com/show?fid=1042211%3A5224582857293986
@@ -51,4 +56,3 @@ script,title,link
 南海之声.py,#风神加强为台风级#国家海洋预报台继续发布#海浪橙色警报#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E9%A3%8E%E7%A5%9E%E5%8A%A0%E5%BC%BA%E4%B8%BA%E5%8F%B0%E9%A3%8E%E7%BA%A7%23&extparam=%23%E9%A3%8E%E7%A5%9E%E5%8A%A0%E5%BC%BA%E4%B8%BA%E5%8F%B0%E9%A3%8E%E7%BA%A7%23
 南海之声.py,#澳军机侵闯西沙领空#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E8%A7%A3%E6%94%BE%E5%86%9B%E5%AF%B9%E6%BE%B3%E5%86%9B%E6%9C%BA%E5%9D%9A%E5%86%B3%E6%8B%A6%E9%98%BB%E9%A9%B1%E7%A6%BB%23&extparam=%23%E8%A7%A3%E6%94%BE%E5%86%9B%E5%AF%B9%E6%BE%B3%E5%86%9B%E6%9C%BA%E5%9D%9A%E5%86%B3%E6%8B%A6%E9%98%BB%E9%A9%B1%E7%A6%BB%23
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
