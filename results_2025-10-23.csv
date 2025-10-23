@@ -27,6 +27,7 @@ script,title,link
 中国外交部.py,2025年10月23日外交部发言人郭嘉昆主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202510/t20251023_11739394.shtml
 中国外交部.py,中国共产党第二十届中央委员会第四次全体会议公报,https://www.mfa.gov.cn/web/ziliao_674904/1179_674909/202510/t20251023_11739370.shtml
 国际海事组织.py,,
+世界贸易组织.py,WTO issues compliance ruling regarding Colombian duties on frozen fries,https://www.wto.org/english/news_e/news25_e/591rw_179_e.htm
 世界贸易组织.py,Forum highlights important role of Central Asian economies in shaping future of trade,https://www.wto.org/english/news_e/news25_e/igo_23oct25_180_e.htm
 日本外务省.py,Japan-Lithuania Foreign Ministers’ Meeting,https://www.mofa.go.jp/press/release/pressite_000001_01764.html
 日本外务省.py,The General Border Committee by the Kingdom of Cambodia and the Kingdom of Thailand (Statement by Press Secretary KITAMURA Toshihiro),https://www.mofa.go.jp/press/release/pressite_000001_01763.html
@@ -35,6 +36,11 @@ script,title,link
 日本外务省.py,Presentation Ceremony for “the Japan Foundation Awards 2025”,https://www.mofa.go.jp/press/release/pressite_000001_01760.html
 日本外务省.py,"Diplomats’ Study Tour in Bizen City and Setouchi City, Okayama Prefecture",https://www.mofa.go.jp/press/release/pressite_000001_01759.html
 联合国海洋法庭.py,,
+战略与国际研究中心.py,The U.S. Coast Guard and the Future of Maritime Cybersecurity,https://www.csis.org/analysis/us-coast-guard-and-future-maritime-cybersecurity
+战略与国际研究中心.py,The Latest on Southeast Asia: South China Sea Updates,https://www.csis.org/blogs/latest-southeast-asia/latest-southeast-asia-south-china-sea-updates
+战略与国际研究中心.py,European Union’s Newfound Pragmatism Focuses on Emission Rules: Will It Appease Doha and Washington?,https://www.csis.org/analysis/european-unions-newfound-pragmatism-focuses-emission-rules-will-it-appease-doha-and
+战略与国际研究中心.py,European Union’s Newfound Pragmatism Focuses on Emission Rules: Will It Appease Doha and Washington?,https://www.csis.org/analysis/european-unions-newfound-pragmatism-focuses-emission-rules-will-it-appease-doha-and
+战略与国际研究中心.py,Is Europe’s Approach to Trump Backfiring?,https://www.csis.org/podcasts/eurofile/europes-approach-trump-backfiring
 战略与国际研究中心.py,U.S.-China Trade War | The Capital Cable #123,https://www.csis.org/events/us-china-trade-war-capital-cable-123
 美国国务院.py,,
 美国运输部海事管理局.py,,
@@ -42,8 +48,11 @@ script,title,link
 日本海上保安大学校.py,,
 日本海上保安厅.py,JICA課題別研修「救難・環境防災コース」を開講～シーレーン沿岸国の海上保安能力の向上～,https://www.kaiho.mlit.go.jp/info/kouhou/post-1255.html
 太平洋岛国论坛.py,,
-越南外交部.py,,
+越南外交部.py,Điện chia buồn,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/dien-chia-buon-57721-138.html
+越南外交部.py,Phó Thủ tướng Bùi Thanh Sơn tiếp Đại sứ Hoa Kỳ tại Việt Nam,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-bui-thanh-son-tiep-dai-su-hoa-ky-tai-viet-nam-57723-139.html
+越南外交部.py,Thông báo,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/thong-bao-57722-139.html
 越南外交学院.py,Hội thảo quốc tế “Vai trò của Trung Quốc trong hợp tác khoa học - công nghệ toàn cầu”,https://www.dav.edu.vn/hoi-thao-quoc-te-vai-tro-cua-trung-quoc-trong-hop-tac-khoa-hoc-cong-nghe-toan-cau/
+中国国际电视台官微.py,读懂景德镇：一座时光雕琢的城市,https://video.weibo.com/show?fid=1034%3A5224990518214689
 中国国际电视台官微.py,CGTN《青年说》鲜活上线！与国同频，共赴未来,https://video.weibo.com/show?fid=1034%3A5224951041425428
 中国国际电视台官微.py,#澳大利亚近期发现两种新深海物种#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%E8%BF%91%E6%9C%9F%E5%8F%91%E7%8E%B0%E4%B8%A4%E7%A7%8D%E6%96%B0%E6%B7%B1%E6%B5%B7%E7%89%A9%E7%A7%8D%23&extparam=%23%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%E8%BF%91%E6%9C%9F%E5%8F%91%E7%8E%B0%E4%B8%A4%E7%A7%8D%E6%96%B0%E6%B7%B1%E6%B5%B7%E7%89%A9%E7%A7%8D%23
 中国国际电视台官微.py,#十五五经济社会发展主要目标#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%81%E4%BA%94%E4%BA%94%E7%9B%AE%E6%A0%87%23&extparam=%23%E5%8D%81%E4%BA%94%E4%BA%94%E7%9B%AE%E6%A0%87%23
@@ -71,4 +80,3 @@ script,title,link
 南海之声.py,#北部湾实弹射击#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E8%88%AA%E8%A1%8C%E8%AD%A6%E5%91%8A%23&isnewpage=1
 南海之声.py,#朝鲜称重要武器系统试验成功进行#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E4%BA%9A%E6%B4%B2%E7%9C%BC%23&extparam=%23%E4%BA%9A%E6%B4%B2%E7%9C%BC%23
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
