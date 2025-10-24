@@ -4,6 +4,7 @@ script,title,link
 中国外交部.py,李强将访问新加坡并赴马来西亚出席东亚合作领导人系列会议,https://www.fmprc.gov.cn/zyxw/202510/t20251024_11739908.shtml
 中国外交部.py,王毅将出席“完善全球治理 共建人类命运共同体”蓝厅论坛,https://www.fmprc.gov.cn/zyxw/202510/t20251024_11739846.shtml
 中国外交部.py,外交部党委扩大会议传达学习党的二十届四中全会精神,https://www.fmprc.gov.cn/wjbzhd/202510/t20251024_11740211.shtml
+中国外交部.py,外交部部长助理蔡伟在“联合国日”庆祝活动上的致辞,https://www.fmprc.gov.cn/wjbxw_new/202510/t20251024_11740320.shtml
 中国外交部.py,外交部副部长孙卫东会见韩国新任驻华大使卢载宪,https://www.fmprc.gov.cn/wjbxw_new/202510/t20251024_11739713.shtml
 中国外交部.py,外交部党委扩大会议传达学习党的二十届四中全会精神,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251024_11740211.shtml
 中国外交部.py,习近平致电祝贺帕斯当选玻利维亚总统,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251024_11739990.shtml
@@ -29,13 +30,14 @@ script,title,link
 中国外交部.py,驻乍得大使王晰宁走访慰问第20批援乍医疗队员,https://www.fmprc.gov.cn/zwbd_673032/jghd_673046/202510/t20251024_11739940.shtml
 中国外交部.py,2025年10月24日外交部发言人郭嘉昆主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202510/t20251024_11740195.shtml
 国际海事组织.py,,
-世界贸易组织.py,,
+世界贸易组织.py,WTO and IMF economists develop new indicator to measure global trade policy dynamics,https://www.wto.org/english/news_e/news25_e/rese_24oct25_182_e.htm
 日本外务省.py,Courtesy Call on Foreign Minister MOTEGI by Japan’s Members of the APEC Business Advisory Council (ABAC),https://www.mofa.go.jp/press/release/pressite_000001_01768.html
 日本外务省.py,Japan-Palau Foreign Ministers’ Meeting,https://www.mofa.go.jp/press/release/pressite_000001_01766.html
 日本外务省.py,The 25th Japan-Spain Forum,https://www.mofa.go.jp/press/release/pressite_000001_01765.html
 联合国海洋法庭.py,,
 战略与国际研究中心.py,U.S.-China Relations and the Future of America’s Energy and Automotive Sectors,https://www.csis.org/events/us-china-relations-and-future-americas-energy-and-automotive-sectors
 战略与国际研究中心.py,"Energy Shots: Exports, Sanctions, and the Venezuelan Barrel",https://www.csis.org/events/energy-shots-exports-sanctions-and-venezuelan-barrel
+战略与国际研究中心.py,A Fresh Perspective on National Security Policy,https://www.csis.org/podcasts/smart-women-smart-power-podcast/fresh-perspective-national-security-policy
 战略与国际研究中心.py,U.S.-China Relations and the Future of America’s Energy and Automotive Sectors,https://www.csis.org/events/us-china-relations-and-future-americas-energy-and-automotive-sectors
 美国国务院.py,,
 美国运输部海事管理局.py,,
@@ -43,10 +45,20 @@ script,title,link
 日本海上保安大学校.py,,
 日本海上保安厅.py,,
 太平洋岛国论坛.py,,
-越南外交部.py,,
+越南外交部.py,Thông cáo của Bộ Ngoại giao,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/thong-cao-cua-bo-ngoai-giao-57733-138.html
+越南外交部.py,Chủ tịch nước Lương Cường chủ trì lễ đón chính thức và hội đàm với Tổng Thư ký Liên hợp quốc...,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-nuoc-luong-cuong-chu-tri-le-don-chinh-thuc-va-hoi-dam-voi-tong-thu-ky-lien-hop-quoc-antonio-guterres-57732-138.html
+越南外交部.py,Tuyên bố chung giữa Việt Nam và Nam Phi nhân dịp chuyến thăm cấp Nhà nước của Tổng thống Nam Phi...,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tuyen-bo-chung-giua-viet-nam-va-nam-phi-nhan-dip-chuyen-tham-cap-nha-nuoc-cua-tong-thong-nam-phi-toi-viet-nam-57739-138.html
+越南外交部.py,Chủ tịch Quốc hội Trần Thanh Mẫn hội kiến Tổng thống Cộng hòa Nam Phi,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-quoc-hoi-tran-thanh-man-hoi-kien-tong-thong-cong-hoa-nam-phi-57728-138.html
+越南外交部.py,Tuyên bố chung về việc thiết lập quan hệ đối tác chiến lược giữa Cộng hòa xã hội chủ nghĩa Việt...,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tuyen-bo-chung-ve-viec-thiet-lap-quan-he-doi-tac-chien-luoc-giua-cong-hoa-xa-hoi-chu-nghia-viet-nam-va-cong-hoa-bun-ga-ri-57727-138.html
+越南外交部.py,Phó Thủ tướng Bùi Thanh Sơn tiếp Bộ trưởng Ngoại giao Maldives,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-bui-thanh-son-tiep-bo-truong-ngoai-giao-maldives-57738-139.html
+越南外交部.py,"Phó Thủ tướng Chính phủ Bùi Thanh Sơn tiếp Phó Thủ tướng, Bộ trưởng Kỹ thuật số Cộng hòa Ba Lan...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-tiep-pho-thu-tuong-bo-truong-ky-thuat-so-cong-hoa-ba-lan-krzysztof-gawkowski-57740-139.html
+越南外交部.py,Rà soát công tác chuẩn bị mọi mặt cho Hội nghị Cấp cao ASEAN 47 và các Cấp cao ASEAN với các đối tác,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/ra-soat-cong-tac-chuan-bi-moi-mat-cho-hoi-nghi-cap-cao-asean-47-va-cac-cap-cao-asean-voi-cac-doi-tac-57729-140.html
 越南外交学院.py,,
 中国国际电视台官微.py,直播中共中央举行新闻发布会，介绍和解读党的#二十届四中全会#精神,https://video.weibo.com/show?fid=1042211%3A5225242642284573
-中国国际电视台官微.py,观看：决策信号与全球视野—四中全会后的中国经济趋势,https://weibo.com/l/wblive/p/show/1022:2321325225354117120577
+中国国际电视台官微.py,打捞被湮灭的台湾史,https://video.weibo.com/show?fid=1034%3A5225379535978512
+中国国际电视台官微.py,直播#联合国成立周年#重返联合国成立八十年来重要历史地点，对话重要历史见证者,https://video.weibo.com/show?fid=1042211%3A5225409449492538
+中国国际电视台官微.py,直播#青年圆桌派#创业青年已成为推动经济合作与文化交流的重要力量，看青年创业如何破局一起共话亚太青年的创新与合作,https://video.weibo.com/show?fid=1042211%3A5225379334389865
+中国国际电视台官微.py,观看：决策信号与全球视野—四中全会后的中国经济趋势,https://video.weibo.com/show?fid=1042211%3A5225372556394547
 中国国际电视台官微.py,共读｜《诡秘之主》：光就是一切的意义,https://video.weibo.com/show?fid=1034%3A5225335030218802
 中国国际电视台官微.py,直播#青年圆桌派#看青年将为##的全球对话贡献哪些智慧与声音,https://video.weibo.com/show?fid=1042211%3A5225362570018874
 中国国际电视台官微.py,田薇✖️时代亲历者｜CGTN重磅专题片《与联合国同行》预告震撼上线,https://video.weibo.com/show?fid=1034%3A5225333784510476
@@ -67,4 +79,3 @@ script,title,link
 南海之声.py,#我国首颗海洋盐度探测卫星完成在轨测试#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1
 南海之声.py,#柬泰就缓解边境局势达成多项共识#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
