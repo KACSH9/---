@@ -33,18 +33,24 @@ script,title,link
 日本外务省.py,Foreign Minister MOTEGI’s Attendance at the APEC Ministerial Meeting 2025 Session I,https://www.mofa.go.jp/ecm/apec/pageite_000001_01347.html
 日本外务省.py,State Minister for Foreign Affairs HORII’s Attendance at the Inaugural Ceremony of the Regular Direct Flight to Palau (Results),https://www.mofa.go.jp/press/release/pressite_000001_01784.html
 日本外务省.py,"Meeting between Foreign Minister MOTEGI and Dr. Ngozi Okonjo-Iweala, Director-General of the World Trade Organization (WTO)",https://www.mofa.go.jp/ecm/it/pageite_000001_01344.html
-联合国海洋法庭.py,,
-战略与国际研究中心.py,,
+联合国海洋法庭.py,Order in The “Zheng He” Case (Luxembourg v. Mexico) https://www.itlos.org/fileadmin/itlos/documents/cases/33/orders/C33_Order_30.10.2025-3.pdf,https://www.itlos.org/en/main/cases/list-of-cases/the-zheng-he-case-luxembourg-v-mexico/
+战略与国际研究中心.py,Can the United States Immediately Return to Nuclear Testing?,https://www.csis.org/analysis/can-united-states-immediately-return-nuclear-testing
+战略与国际研究中心.py,Trump at ASEAN with Brian Eyler and Prashanth Parameswaran,https://www.csis.org/podcasts/southeast-asia-radio/trump-asean-brian-eyler-and-prashanth-parameswaran
 美国国务院.py,,
 美国运输部海事管理局.py,,
 中国海事局.py,,
 日本海上保安大学校.py,,
 日本海上保安厅.py,,
 太平洋岛国论坛.py,,
+越南外交部.py,Chủ tịch nước Lương Cường hội đàm với Tổng thống Hàn Quốc Lee Jae Myung,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-nuoc-luong-cuong-hoi-dam-voi-tong-thong-han-quoc-lee-jae-myung-57827-138.html
+越南外交部.py,Tổng Bí thư Tô Lâm gặp Phó thủ tướng Anh David Lammy,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tong-bi-thu-to-lam-gap-pho-thu-tuong-anh-david-lammy-57825-138.html
+越南外交部.py,Tuyên bố chung về việc nâng cấp quan hệ Việt Nam - Anh lên Đối tác chiến lược toàn diện,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tuyen-bo-chung-ve-viec-nang-cap-quan-he-viet-nam-anh-len-doi-tac-chien-luoc-toan-dien-57824-138.html
+越南外交部.py,Điện mừng,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/dien-mung-57823-138.html
 越南外交部.py,Tổng Bí thư Tô Lâm hội đàm với Thủ tướng Anh Keir Starmer,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tong-bi-thu-to-lam-hoi-dam-voi-thu-tuong-anh-keir-starmer-57822-138.html
 越南外交部.py,Đối thoại lý luận lần thứ 10 giữa Đảng Cộng sản Việt Nam và Đảng Dân chủ Xã hội Đức,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/doi-thoai-ly-luan-lan-thu-10-giua-dang-cong-san-viet-nam-va-dang-dan-chu-xa-hoi-duc-57820-139.html
 越南外交学院.py,,
 中国国际电视台官微.py,直播#神舟二十一号#载人飞行任务航天员乘组与中外媒体记者见面会,https://video.weibo.com/show?fid=1042211%3A5227412108279914
+中国国际电视台官微.py,你好，未来！在韩国校园聊世界,https://video.weibo.com/show?fid=1034%3A5227576034263128
 中国国际电视台官微.py,直播#金融街论坛#全球金融中心对话创新变革中的合作新机遇,https://video.weibo.com/show?fid=1042211%3A5227495503626285
 中国国际电视台官微.py,#后介绍后后同事#哈哈转发分享,https://video.weibo.com/show?fid=1034%3A5227473806491652
 中国国际电视台官微.py,宁德时代董事长曾毓群：中国企业赋能全球绿色转型,https://video.weibo.com/show?fid=1034%3A5227414423535647
@@ -52,10 +58,8 @@ script,title,link
 中国国际电视台官微.py,海客谈APEC特辑：越南青年期待APEC加强区域供应链协作,https://video.weibo.com/show?fid=1034%3A5227410417975327
 中国国际电视台官微.py,#神航天员乘组公布#加油,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E8%88%AA%E5%A4%A9%E5%91%98%E5%BC%A0%E9%99%86%E6%AD%A6%E9%A3%9E%E5%BC%A0%E6%B4%AA%E7%AB%A0%23&extparam=%23%E8%88%AA%E5%A4%A9%E5%91%98%E5%BC%A0%E9%99%86%E6%AD%A6%E9%A3%9E%E5%BC%A0%E6%B4%AA%E7%AB%A0%23
 南海之声.py,#第四届华语纪录电影大会#金海鸥推优盛典在珠海举行,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E7%AC%AC%E5%9B%9B%E5%B1%8A%E5%8D%8E%E8%AF%AD%E7%BA%AA%E5%BD%95%E7%94%B5%E5%BD%B1%E5%A4%A7%E4%BC%9A%23&extparam=%23%E7%AC%AC%E5%9B%9B%E5%B1%8A%E5%8D%8E%E8%AF%AD%E7%BA%AA%E5%BD%95%E7%94%B5%E5%BD%B1%E5%A4%A7%E4%BC%9A%23
-南海之声.py,独家视频 | 中美元首会晤结束后 特朗普总统送习近平主席上车,https://video.weibo.com/show?fid=1034%3A5227450666516533
-南海之声.py,习近平#让中美关系这艘大船平稳前行#,https://video.weibo.com/show?fid=1034%3A5227413664366605
+南海之声.py,习近平#让中美关系这艘大船平稳前行#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E4%B8%AD%E7%BE%8E%E5%85%83%E9%A6%96%E9%87%9C%E5%B1%B1%E4%BC%9A%E6%99%A4%23&extparam=%23%E4%B8%AD%E7%BE%8E%E5%85%83%E9%A6%96%E9%87%9C%E5%B1%B1%E4%BC%9A%E6%99%A4%23
 南海之声.py,#到邻居家串串门看看朋友#时隔年习主席再访韩国,https://video.weibo.com/show?fid=1034%3A5227445461385297
 南海之声.py,独家视频最新#神瞄准日时分发射#威武,https://video.weibo.com/show?fid=1034%3A5227375357788228
 南海之声.py,独家视频 | 习近平抵达韩国出席亚太经合组织第三十二次领导人非正式会议并对韩国进行国事访问,https://video.weibo.com/show?fid=1034%3A5227387777122414
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1
-海事服务网.py,,
