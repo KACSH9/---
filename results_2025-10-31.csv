@@ -1,9 +1,14 @@
 script,title,link
+中国外交部.py,习近平会见日本首相高市早苗,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11745194.shtml
+中国外交部.py,习近平会见泰国总理阿努廷,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11745191.shtml
 中国外交部.py,习近平会见加拿大总理卡尼,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11745085.shtml
 中国外交部.py,习近平向亚太经合组织工商领导人峰会发表书面演讲,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11744895.shtml
 中国外交部.py,习近平在亚太经合组织工商领导人峰会上的书面演讲（全文）,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11744903.shtml
 中国外交部.py,习近平出席亚太经合组织第三十二次领导人非正式会议并发表重要讲话,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11744703.shtml
 中国外交部.py,习近平在亚太经合组织第三十二次领导人非正式会议第一阶段会议上的讲话（全文）,https://www.fmprc.gov.cn/zyxw/202510/t20251031_11744701.shtml
+中国外交部.py,外交部部长助理刘彬出席哈萨克斯坦共和国日招待会,https://www.fmprc.gov.cn/wjbxw_new/202510/t20251031_11745205.shtml
+中国外交部.py,习近平会见日本首相高市早苗,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251031_11745194.shtml
+中国外交部.py,习近平会见泰国总理阿努廷,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251031_11745191.shtml
 中国外交部.py,习近平会见加拿大总理卡尼,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251031_11745085.shtml
 中国外交部.py,习近平向亚太经合组织工商领导人峰会发表书面演讲,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251031_11744895.shtml
 中国外交部.py,习近平出席亚太经合组织第三十二次领导人非正式会议并发表重要讲话,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202510/t20251031_11744703.shtml
@@ -41,15 +46,19 @@ script,title,link
 日本外务省.py,State Minister for Foreign Affairs KUNIMITSU’s Visit to the Arab Republic of Egypt as a Special Envoy of the Prime Minister,https://www.mofa.go.jp/press/release/pressite_000001_01787.html
 日本外务省.py,Message of condolences from Foreign Minister MOTEGI following the damage caused by the hurricane in the Caribbean region,https://www.mofa.go.jp/press/release/pressite_000001_01786.html
 联合国海洋法庭.py,,
-战略与国际研究中心.py,,
+战略与国际研究中心.py,Humans in Low Orbit: A Conversation with Astronaut Dr. Peggy Whitson,https://www.csis.org/podcasts/smart-women-smart-power-podcast/humans-low-orbit-conversation-astronaut-dr-peggy-whitson
+战略与国际研究中心.py,Was President Trump's Asia trip a success?,https://www.csis.org/podcasts/state-play/was-president-trumps-asia-trip-success
 美国国务院.py,,
 美国运输部海事管理局.py,,
 中国海事局.py,,
 日本海上保安大学校.py,,
 日本海上保安厅.py,,
 太平洋岛国论坛.py,,
-越南外交部.py,,
+越南外交部.py,Phiên thứ nhất của Hội nghị các nhà lãnh đạo APEC 2025,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/phien-thu-nhat-cua-hoi-nghi-cac-nha-lanh-dao-apec-2025-57832-138.html
+越南外交部.py,Phó Thủ tướng Chính phủ Bùi Thanh Sơn tham dự Đối thoại giữa các Nhà Lãnh đạo APEC và Hội đồng tư...,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-chinh-phu-bui-thanh-son-tham-du-doi-thoai-giua-cac-nha-lanh-dao-apec-va-hoi-dong-tu-van-kinh-doanh-apec-abac--57837-139.html
 越南外交学院.py,,
+中国国际电视台官微.py,直播#神舟二十一号#载人飞船发射特别节目,https://video.weibo.com/show?fid=1042211%3A5227964548448305&launchid=10000360-page_H5
+中国国际电视台官微.py,直播#神舟二十一号载人飞行任务#航天员乘组出征仪式,https://video.weibo.com/show?fid=1042211%3A5227923083558942&launchid=10000360-page_H5
 中国国际电视台官微.py,不止二次元预告片：剑网3的“侠客行”,https://video.weibo.com/show?fid=1034%3A5227781349638164&launchid=10000360-page_H5
 中国国际电视台官微.py,福益华：一位美国医生的中国缘,https://video.weibo.com/show?fid=1034%3A5227781211226120&launchid=10000360-page_H5
 中国国际电视台官微.py,#未来脉搏#当代码没有秘密，未来由谁定义,https://video.weibo.com/show?fid=1034%3A5227778346516529&launchid=10000360-page_H5
@@ -57,10 +66,12 @@ script,title,link
 中国国际电视台官微.py,#神舟二十一号今晚发射#,https://video.weibo.com/show?fid=1034%3A5227779348955143&launchid=10000360-page_H5
 中国国际电视台官微.py,清华大学国家金融研究院院长：金融赋能新质生产力,https://video.weibo.com/show?fid=1034%3A5227771165868101&launchid=10000360-page_H5
 中国国际电视台官微.py,#先声夺人#洞察亚太奇迹缘何成为全球增长引擎,https://video.weibo.com/show?fid=1034%3A5227769622364201&launchid=10000360-page_H5
+南海之声.py,#中国在亚太经合组织框架下发挥引领作用#,https://video.weibo.com/show?fid=1034%3A5227793227644984&launchid=10000360-page_H5
+南海之声.py,#第次中老缅泰湄公河联合巡逻#执法行动圆满结束,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1&launchid=10000360-page_H5
+南海之声.py,#中越举行北部湾渔业可持续发展合作协定第五轮磋商#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1&launchid=10000360-page_H5
 南海之声.py,#为亚太可持续明天注入中国动力#,https://video.weibo.com/show?fid=1034%3A5227801251610681&launchid=10000360-page_H5
 南海之声.py,#习近平会见泰国总理#,https://video.weibo.com/show?fid=1034%3A5227844901732374&launchid=10000360-page_H5
 南海之声.py,#中国海警位中国黄岩岛领海及周边区域执法巡查#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1&launchid=10000360-page_H5
 南海之声.py,#共建普惠包容的开放型亚太经济#,https://video.weibo.com/show?fid=1034%3A5227764828274786&launchid=10000360-page_H5
 南海之声.py,#第届东盟防长会在马来西亚吉隆坡召开#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1&launchid=10000360-page_H5
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1&launchid=10000360-page_H5
-海事服务网.py,,
