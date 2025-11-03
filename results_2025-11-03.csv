@@ -1,7 +1,13 @@
 script,title,link
+中国外交部.py,李强同俄罗斯总理米舒斯京共同主持中俄总理第三十次定期会晤,https://www.fmprc.gov.cn/zyxw/202511/t20251103_11746227.shtml
+中国外交部.py,赵乐际、王沪宁分别会见斯洛文尼亚国民委员会主席洛特里奇,https://www.fmprc.gov.cn/zyxw/202511/t20251103_11746225.shtml
+中国外交部.py,王毅应约同德国外长瓦德富尔通电话,https://www.fmprc.gov.cn/wjbzhd/202511/t20251103_11746151.shtml
+中国外交部.py,李强同俄罗斯总理米舒斯京共同主持中俄总理第三十次定期会晤,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202511/t20251103_11746227.shtml
+中国外交部.py,赵乐际、王沪宁分别会见斯洛文尼亚国民委员会主席洛特里奇,https://www.fmprc.gov.cn/wjdt_674879/gjldrhd_674881/202511/t20251103_11746225.shtml
 中国外交部.py,爱沙尼亚外长查赫克纳将访华,https://www.fmprc.gov.cn/wjdt_674879/wsrc_674883/202511/t20251103_11745849.shtml
 中国外交部.py,格鲁吉亚总理科巴希泽等外国领导人将出席第八届中国国际进口博览会,https://www.fmprc.gov.cn/wjdt_674879/wsrc_674883/202511/t20251103_11745847.shtml
 中国外交部.py,西班牙国王费利佩六世将访华,https://www.fmprc.gov.cn/wjdt_674879/wsrc_674883/202511/t20251103_11745842.shtml
+中国外交部.py,外交部组织驻华使团人员赴广西参访,https://www.fmprc.gov.cn/wjdt_674879/sjxw_674887/202511/t20251103_11746224.shtml
 中国外交部.py,新任驻尼加拉瓜大使瞿瑜辉抵尼履新,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202511/t20251103_11745830.shtml
 中国外交部.py,驻阿尔及利亚使馆临时代办赵平盛出席使馆举办的媒体学者座谈会,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202511/t20251103_11745810.shtml
 中国外交部.py,驻拉各斯总领事严宇清在“创新·开放·共享发展”全球对话会—尼日利亚专场上的致辞,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202511/t20251103_11745797.shtml
@@ -22,7 +28,7 @@ script,title,link
 日本海上保安大学校.py,,
 日本海上保安厅.py,,
 太平洋岛国论坛.py,,
-越南外交部.py,,
+越南外交部.py,Hội thảo khoa học quốc tế về Biển Đông lần thứ 17 “Đoàn kết trong Bất định”,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/hoi-thao-khoa-hoc-quoc-te-ve-bien-dong-lan-thu-17-doan-ket-trong-bat-dinh--57848-139.html
 越南外交学院.py,,
 中国国际电视台官微.py,即将追平最长纪录,美国联邦政府“停摆”仍在持续
 中国国际电视台官微.py,慢直播上海藏着片治愈沙滩#金山城市沙滩#,https://video.weibo.com/show?fid=1042211%3A5228940432703498&launchid=10000360-page_H5
@@ -32,6 +38,7 @@ script,title,link
 中国国际电视台官微.py,迎接神二十乘组回家 东风着陆场准备就绪,https://video.weibo.com/show?fid=1034%3A5228874263363636&launchid=10000360-page_H5
 中国国际电视台官微.py,慢直播：沉浸式打卡 上海杨浦滨江,https://video.weibo.com/show?fid=1042211%3A5228846031765548&launchid=10000360-page_H5
 中国国际电视台官微.py,直播：登宝塔山观延安，红色圣地忆峥嵘,https://video.weibo.com/show?fid=1042211%3A5228825655574548&launchid=10000360-page_H5
+南海之声.py,每天对开个班次#中老首条跨国公交开通#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1&launchid=10000360-page_H5
 南海之声.py,柳州钦州东盟#西部陆海新通道铁海联运专列首发#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E5%8D%97%E6%B5%B7%E7%89%B9%E5%BF%AB%23&isnewpage=1&launchid=10000360-page_H5
 南海之声.py,#高中生讲述缅北天经历#,https://video.weibo.com/show?fid=1034%3A5228885185593413&launchid=10000360-page_H5
 南海之声.py,点赞#我国成功发射遥感四十六号卫星#,https://video.weibo.com/show?fid=1034%3A5228877837172805&launchid=10000360-page_H5
@@ -39,4 +46,3 @@ script,title,link
 南海之声.py,#渤海军事演习#,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E8%88%AA%E8%A1%8C%E8%AD%A6%E5%91%8A%23&isnewpage=1&launchid=10000360-page_H5
 南海之声.py,,南海北部中部将出现3到4.5米的大浪巨浪
 南海之声.py,,https://m.weibo.cn/search?containerid=231522type%3D1%26t%3D10%26q%3D%23%E6%97%A9%E5%AE%89%E5%8D%97%E6%B5%B7%23&isnewpage=1&launchid=10000360-page_H5
-海事服务网.py,,
