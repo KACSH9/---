@@ -1,4 +1,7 @@
 script,title,link
+中国外交部.py,外交部副部长马朝旭会见加拿大官员,https://www.fmprc.gov.cn/wjbxw_new/202512/t20251219_11776954.shtml
+中国外交部.py,外交部副部长马朝旭会见加拿大官员,https://www.fmprc.gov.cn/wjdt_674879/wjbxw_674885/202512/t20251219_11776954.shtml
+中国外交部.py,外交部非洲之角事务特使胡长春出席中国索马里建交65周年招待会,https://www.fmprc.gov.cn/wjdt_674879/sjxw_674887/202512/t20251219_11776631.shtml
 中国外交部.py,中加（拿大）举行第五轮领事磋商,https://www.fmprc.gov.cn/wjdt_674879/sjxw_674887/202512/t20251219_11776440.shtml
 中国外交部.py,驻哥伦比亚大使朱京阳拜会哥外长比利亚维森西奥,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202512/t20251219_11776457.shtml
 中国外交部.py,驻多哥大使王敏出席农机捐赠仪式,https://www.fmprc.gov.cn/wjdt_674879/zwbd_674895/202512/t20251219_11776460.shtml
@@ -13,13 +16,22 @@ script,title,link
 中国外交部.py,驻拉各斯总领事严宇清会见尼日利亚安全和民防团拉各斯司令部司令,https://www.fmprc.gov.cn/zwbd_673032/wshd_673034/202512/t20251219_11776466.shtml
 中国外交部.py,驻也门使馆临时代办邵峥会见英国驻也门大使沙里夫,https://www.fmprc.gov.cn/zwbd_673032/wshd_673034/202512/t20251219_11776469.shtml
 中国外交部.py,驻西班牙兼驻安道尔大使姚敬出席安外交大臣访西招待会,https://www.fmprc.gov.cn/zwbd_673032/wshd_673034/202512/t20251219_11776464.shtml
+中国外交部.py,驻卡拉奇总领事杨云东会见卡拉奇警察局局长贾韦德,https://www.fmprc.gov.cn/zwbd_673032/wshd_673034/202512/t20251219_11776473.shtml
+中国外交部.py,驻乍得大使王晰宁出席“对接发展规划 深化中乍合作”研讨会,https://www.fmprc.gov.cn/zwbd_673032/gzhd_673042/202512/t20251219_11776512.shtml
 中国外交部.py,驻格林纳达大使杨舒出席格政府2025年度奖学金颁发仪式,https://www.fmprc.gov.cn/zwbd_673032/gzhd_673042/202512/t20251219_11776531.shtml
 中国外交部.py,驻巴西使馆临时代办邢文聚出席金砖国家调解研讨会,https://www.fmprc.gov.cn/zwbd_673032/gzhd_673042/202512/t20251219_11776474.shtml
-中国外交部.py,驻乍得大使王晰宁出席“对接发展规划 深化中乍合作”研讨会,https://www.fmprc.gov.cn/zwbd_673032/gzhd_673042/202512/t20251219_11776512.shtml
 中国外交部.py,驻丹麦大使王雪峰出席丹工业联合会“感知中国”对话会,https://www.fmprc.gov.cn/zwbd_673032/gzhd_673042/202512/t20251219_11776477.shtml
+中国外交部.py,2025年12月19日外交部发言人郭嘉昆主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202512/t20251219_11776886.shtml
 国际海事组织.py,,
 世界贸易组织.py,,
-日本外务省.py,,
+日本外务省.py,Japan-Kyrgyz Foreign Ministers’ Meeting,https://www.mofa.go.jp/press/release/pressite_000001_01947.html
+日本外务省.py,Courtesy Call on Parliamentary Vice Minister for Foreign Affairs ONISHI by participants of the Ninth Dialogue on Countering Violent Extremism in the Middle East,https://www.mofa.go.jp/press/release/pressite_000001_01946.html
+日本外务省.py,Japan-Tajikistan Foreign Ministers’ Meeting,https://www.mofa.go.jp/press/release/pressite_000001_01945.html
+日本外务省.py,Visit of IAEA Officials and International Experts for a Review on the Discharge of ALPS Treated Water from TEPCO’s Fukushima Daiichi Nuclear Power Station into the Sea (Results),https://www.mofa.go.jp/press/release/pressite_000001_01944.html
+日本外务省.py,Signing of the Japan-Tajikistan Investment Agreement,https://www.mofa.go.jp/press/release/pressite_000001_01943.html
+日本外务省.py,Summary of the Sixth round of negotiations for Japan-United Arab Emirates (UAE) Economic Partnership Agreement (EPA),https://www.mofa.go.jp/press/release/pressite_000001_01942.html
+日本外务省.py,Signing of the Tax Agreement between Japan and the Kyrgyz Republic,https://www.mofa.go.jp/press/release/pressite_000001_01941.html
+日本外务省.py,Signing of the Japan-New Zealand Acquisition and Cross-Servicing Agreement and the Japan-New Zealand Information Security Agreement,https://www.mofa.go.jp/press/release/pressite_000001_01940.html
 联合国海洋法庭.py,,
 国际海底管理局.py,,
 战略与国际研究中心.py,EV Skid Marks and Year in Review,https://www.csis.org/events/ev-skid-marks-and-year-review
@@ -31,7 +43,7 @@ script,title,link
 日本海上保安大学校.py,,
 日本海上保安厅.py,青森県東方沖を震源とする地震後に三陸沖の海底地殻変動観測を実施しました,https://www.kaiho.mlit.go.jp/info/kouhou/post-1271.html
 太平洋岛国论坛.py,,
-越南外交部.py,,
+越南外交部.py,Trả lời của Người Phát ngôn Bộ Ngoại giao Phạm Thu Hằng trước câu hỏi của phóng viên đề nghị cho...,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tra-loi-cua-nguoi-phat-ngon-bo-ngoai-giao-pham-thu-hang-truoc-cau-hoi-cua-phong-vien-de-nghi-cho-biet-phan-ung-cua-viet-nam-truoc-viec-uy-ban-tu-do-ton-giao-quoc-te-hoa-ky-uscirf-cong-bo-bao-cao-cap-nhat-ve-viet-nam-58241-10.html
 越南外交学院.py,,
 中国国际电视台官微.py,,
 南海之声.py,,
