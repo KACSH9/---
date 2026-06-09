@@ -31,8 +31,8 @@ script,title,link
 中国外交部.py,驻蒙特利尔总领事戴玉明出席2026年“汉语桥”世界中文比赛魁北克地区决赛,https://www.fmprc.gov.cn/zwbd_673032/whjl/202606/t20260609_11940279.shtml
 中国外交部.py,驻苏里南大使林棘出席2026年“汉语桥”中文比赛苏里南赛区决赛,https://www.fmprc.gov.cn/zwbd_673032/whjl/202606/t20260609_11940256.shtml
 中国外交部.py,2026年6月9日外交部发言人林剑主持例行记者会,https://www.fmprc.gov.cn/fyrbt_673021/jzhsl_673025/202606/t20260609_11940686.shtml
-国际海事组织.py,,
-世界贸易组织.py,,
+国际海事组织.py,没有安全通道：霍尔木兹海峡仍然极不稳定,https://www.imo.org/zh/MediaCentre/PressBriefings/pages/Statement-no-safe-passage-Strait-of-Hormuz.aspx
+世界贸易组织.py,Fish Fund supports Tonga&rsquo;s first notification under the Agreement on Fisheries Subsidies,https://www.wto.org/english/news_e/news26_e/ffm_09jun26_410_e.htm
 日本外务省.py,Japan-Germany Vice-Ministers' Meeting,https://www.mofa.go.jp/press/release/pressite_000001_02403.html
 日本外务省.py,Japan-Mongolia Foreign Ministers’ Meeting,https://www.mofa.go.jp/press/release/pressite_000001_02401.html
 日本外务省.py,"Visit to Japan of H.E. Mr. Jeyhun BAYRAMOV, Minister of Foreign Affairs of Azerbaijan",https://www.mofa.go.jp/press/release/pressite_000001_02400.html
@@ -40,25 +40,15 @@ script,title,link
 联合国海洋法庭.py,,
 国际海底管理局.py,Acting Locally in the Pacific: How Discovering New Sea Star Species in the Clarion-Clipperton Zone Is Reshaping What We Know About Life on the Seafloor,https://isa.org.jm/news/acting-locally-in-the-pacific-how-discovering-new-sea-star-species-in-the-clarion-clipperton-zone-is-reshaping-what-we-know-about-life-on-the-seafloor/
 战略与国际研究中心.py,Ocean Security and Human Rights Forum,https://www.csis.org/events/ocean-security-and-human-rights-forum-2026
+战略与国际研究中心.py,Friendly Proliferation,https://www.csis.org/analysis/friendly-proliferation
 美国国务院.py,Consular Information for Americans Regarding the Ebola Outbreak,https://travel.state.gov/en/international-travel/travel-advisories/global-events/ebola.html
+美国国务院.py,Digital Press Briefing: Under Secretary for Public Diplomacy Sarah B. Rogers,https://www.state.gov/digital-press-briefing-under-secretary-for-public-diplomacy-sarah-b-rogers/
 美国运输部海事管理局.py,,
 中国海事局.py,,
 日本海上保安大学校.py,,
 日本海上保安厅.py,,
 太平洋岛国论坛.py,,
-越南外交部.py,"Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Thủ tướng Vương quốc Campuchia Hun Manet",https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-thu-tuong-vuong-quoc-campuchia-hun-manet-60368-138.html
-越南外交部.py,"Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Thủ tướng Lào Sonexay Siphandone",https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-thu-tuong-lao-sonexay-siphandone-60367-138.html
-越南外交部.py,Chủ tịch Quốc hội Trần Thanh Mẫn tiếp lãnh đạo các thành phố ASEAN,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-quoc-hoi-tran-thanh-man-tiep-lanh-dao-cac-thanh-pho-asean-60366-138.html
-越南外交部.py,Chủ tịch Quốc hội Trần Thanh Mẫn hội kiến Thủ tướng Timor-Leste Kay Rala Xanana Gusmao,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-quoc-hoi-tran-thanh-man-hoi-kien-thu-tuong-timor-leste-kay-rala-xanana-gusmao-60365-138.html
-越南外交部.py,Thủ tướng Chính phủ Lê Minh Hưng hội đàm với Thủ tướng Timor-Leste,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/thu-tuong-chinh-phu-le-minh-hung-hoi-dam-voi-thu-tuong-timor-leste-60364-138.html
-越南外交部.py,Điện mừng Toàn quyền Canada,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/dien-mung-toan-quyen-canada-60363-138.html
-越南外交部.py,"Tổng Bí thư, Chủ tịch nước Tô Lâm tiếp Thủ tướng Thái Lan",https://mofa.gov.vn/tin-chi-tiet/chi-tiet/tong-bi-thu-chu-tich-nuoc-to-lam-tiep-thu-tuong-thai-lan-60362-138.html
-越南外交部.py,Thủ tướng Chính phủ Lê Minh Hưng: Việt Nam tiếp tục đồng hành cùng ASEAN bằng khát vọng kiến tạo...,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/thu-tuong-chinh-phu-le-minh-hung-viet-nam-tiep-tuc-dong-hanh-cung-asean-bang-khat-vong-kien-tao-tuong-lai-60347-138.html
-越南外交部.py,Chủ tịch Quốc hội Trần Thanh Mẫn hội kiến Thủ tướng Lào Sonexay Siphandone,https://mofa.gov.vn/tin-chi-tiet/chi-tiet/chu-tich-quoc-hoi-tran-thanh-man-hoi-kien-thu-tuong-lao-sonexay-siphandone-60344-138.html
-越南外交部.py,"Đồng chí Đoàn Minh Huấn, Ủy viên Bộ Chính trị, Giám đốc Học viện Chính trị Quốc gia Hồ Chí Minh...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/dong-chi-doan-minh-huan-uy-vien-bo-chinh-tri-giam-doc-hoc-vien-chinh-tri-quoc-gia-ho-chi-minh-tiep-doan-dang-dang-hanh-dong-nhan-dan-va-dang-mat-tran-cach-mang-vi-mot-timor-leste-doc-lap-60376-139.html
-越南外交部.py,"Đồng chí Nguyễn Thanh Nghị, Ủy viên Bộ Chính trị, Bí thư Trung ương Đảng, Trưởng ban Chính sách,...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/dong-chi-nguyen-thanh-nghi-uy-vien-bo-chinh-tri-bi-thu-trung-uong-dang-truong-ban-chinh-sach-chien-luoc-trung-uong-tiep-pho-tong-thu-ky-thu-nhat-dang-dai-hoi-dan-toc-tai-thiet-timor-leste-60375-139.html
-越南外交部.py,Phó Thủ tướng Phan Văn Giang tiếp Phó Tổng Thư ký Liên hợp quốc phụ trách giải trừ quân bị Izumi...,https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-phan-van-giang-tiep-pho-tong-thu-ky-lien-hop-quoc-phu-trach-giai-tru-quan-bi-izumi-nakamitsu-60374-139.html
-越南外交部.py,"Phó Thủ tướng Lê Tiến Châu tiếp Bộ trưởng Bộ Giáo dục, Văn hóa, Thể thao, Khoa học và Công nghệ...",https://mofa.gov.vn/vi/tin-chi-tiet/chi-tiet/pho-thu-tuong-le-tien-chau-tiep-bo-truong-bo-giao-duc-van-hoa-the-thao-khoa-hoc-va-cong-nghe-nhat-ban-60372-139.html
+越南外交部.py,,
 越南外交学院.py,,
 中国国际电视台官微.py,,
 南海之声.py,,
